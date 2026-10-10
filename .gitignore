@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+package_docs/
+practice_docs/
+learning_docs/
+discovery/
+.venvs/
+**/.venvs/

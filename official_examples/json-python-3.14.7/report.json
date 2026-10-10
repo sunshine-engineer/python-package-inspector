@@ -1,0 +1,1977 @@
+{
+  "package": "json",
+  "version": "3.14.7",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "requested_version": null,
+  "version_selection": "python-interpreter",
+  "package_type": "standard-library",
+  "official_docs_options": {
+    "enabled": true,
+    "url": null,
+    "max_pages": 1,
+    "timeout": 10.0
+  },
+  "executable": "C:\\Users\\sunny\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+  "environment": "C:\\Users\\sunny\\AppData\\Local\\Python\\pythoncore-3.14-64",
+  "cleanup_requested": false,
+  "metadata": {
+    "Name": [
+      "json"
+    ],
+    "Python-Version": [
+      "3.14.7"
+    ],
+    "Summary": [
+      "Python standard-library module; included with this interpreter, not installed from PyPI."
+    ]
+  },
+  "requirements": [],
+  "entry_points": [],
+  "files": [
+    {
+      "path": "json/__init__.py",
+      "size": 14497,
+      "hash": null
+    },
+    {
+      "path": "json/__main__.py",
+      "size": 441,
+      "hash": null
+    },
+    {
+      "path": "json/decoder.py",
+      "size": 13241,
+      "hash": null
+    },
+    {
+      "path": "json/encoder.py",
+      "size": 17451,
+      "hash": null
+    },
+    {
+      "path": "json/scanner.py",
+      "size": 2507,
+      "hash": null
+    },
+    {
+      "path": "json/tool.py",
+      "size": 4740,
+      "hash": null
+    }
+  ],
+  "modules": [
+    {
+      "module": "json",
+      "source": "json/__init__.py",
+      "docstring": "JSON (JavaScript Object Notation) <https://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\n\n:mod:`json` exposes an API familiar to users of the standard library\n:mod:`marshal` and :mod:`pickle` modules.  It is derived from a\nversion of the externally maintained simplejson library.\n\nEncoding basic Python object hierarchies::\n\n    >>> import json\n    >>> json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])\n    '[\"foo\", {\"bar\": [\"baz\", null, 1.0, 2]}]'\n    >>> print(json.dumps(\"\\\"foo\\bar\"))\n    \"\\\"foo\\bar\"\n    >>> print(json.dumps('\\u1234'))\n    \"\\u1234\"\n    >>> print(json.dumps('\\\\'))\n    \"\\\\\"\n    >>> print(json.dumps({\"c\": 0, \"b\": 0, \"a\": 0}, sort_keys=True))\n    {\"a\": 0, \"b\": 0, \"c\": 0}\n    >>> from io import StringIO\n    >>> io = StringIO()\n    >>> json.dump(['streaming API'], io)\n    >>> io.getvalue()\n    '[\"streaming API\"]'\n\nCompact encoding::\n\n    >>> import json\n    >>> mydict = {'4': 5, '6': 7}\n    >>> json.dumps([1,2,3,mydict], separators=(',', ':'))\n    '[1,2,3,{\"4\":5,\"6\":7}]'\n\nPretty printing::\n\n    >>> import json\n    >>> print(json.dumps({'4': 5, '6': 7}, sort_keys=True, indent=4))\n    {\n        \"4\": 5,\n        \"6\": 7\n    }\n\nDecoding JSON::\n\n    >>> import json\n    >>> obj = ['foo', {'bar': ['baz', None, 1.0, 2]}]\n    >>> json.loads('[\"foo\", {\"bar\":[\"baz\", null, 1.0, 2]}]') == obj\n    True\n    >>> json.loads('\"\\\\\"foo\\\\bar\"') == '\"foo\\x08ar'\n    True\n    >>> from io import StringIO\n    >>> io = StringIO('[\"streaming API\"]')\n    >>> json.load(io)[0] == 'streaming API'\n    True\n\nSpecializing JSON object decoding::\n\n    >>> import json\n    >>> def as_complex(dct):\n    ...     if '__complex__' in dct:\n    ...         return complex(dct['real'], dct['imag'])\n    ...     return dct\n    ...\n    >>> json.loads('{\"__complex__\": true, \"real\": 1, \"imag\": 2}',\n    ...     object_hook=as_complex)\n    (1+2j)\n    >>> from decimal import Decimal\n    >>> json.loads('1.1', parse_float=Decimal) == Decimal('1.1')\n    True\n\nSpecializing JSON object encoding::\n\n    >>> import json\n    >>> def encode_complex(obj):\n    ...     if isinstance(obj, complex):\n    ...         return [obj.real, obj.imag]\n    ...     raise TypeError(f'Object of type {obj.__class__.__name__} '\n    ...                     f'is not JSON serializable')\n    ...\n    >>> json.dumps(2 + 1j, default=encode_complex)\n    '[2.0, 1.0]'\n    >>> json.JSONEncoder(default=encode_complex).encode(2 + 1j)\n    '[2.0, 1.0]'\n    >>> ''.join(json.JSONEncoder(default=encode_complex).iterencode(2 + 1j))\n    '[2.0, 1.0]'\n\n\nUsing json from the shell to validate and pretty-print::\n\n    $ echo '{\"json\":\"obj\"}' | python -m json\n    {\n        \"json\": \"obj\"\n    }\n    $ echo '{ 1.2:3.4}' | python -m json\n    Expecting property name enclosed in double quotes: line 1 column 3 (char 2)\n",
+      "members": [
+        {
+          "name": "__version__",
+          "kind": "assignment",
+          "line": 98,
+          "source": "__version__ = '2.0.9'"
+        },
+        {
+          "name": "__all__",
+          "kind": "assignment",
+          "line": 99,
+          "source": "__all__ = ['dump', 'dumps', 'load', 'loads', 'JSONDecoder', 'JSONDecodeError', 'JSONEncoder']"
+        },
+        {
+          "name": "__author__",
+          "kind": "assignment",
+          "line": 104,
+          "source": "__author__ = 'Bob Ippolito <bob@redivi.com>'"
+        },
+        {
+          "name": "from .decoder import JSONDecoder, JSONDecodeError",
+          "kind": "import",
+          "line": 106,
+          "from_module": "decoder",
+          "level": 1,
+          "bindings": [
+            {
+              "imported": "JSONDecoder",
+              "local": "JSONDecoder"
+            },
+            {
+              "imported": "JSONDecodeError",
+              "local": "JSONDecodeError"
+            }
+          ]
+        },
+        {
+          "name": "from .encoder import JSONEncoder",
+          "kind": "import",
+          "line": 107,
+          "from_module": "encoder",
+          "level": 1,
+          "bindings": [
+            {
+              "imported": "JSONEncoder",
+              "local": "JSONEncoder"
+            }
+          ]
+        },
+        {
+          "name": "import codecs",
+          "kind": "import",
+          "line": 108,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "codecs",
+              "local": "codecs"
+            }
+          ]
+        },
+        {
+          "name": "_default_encoder",
+          "kind": "assignment",
+          "line": 110,
+          "source": "_default_encoder = JSONEncoder(skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, indent=None, separators=None, default=None)"
+        },
+        {
+          "name": "dump",
+          "kind": "function",
+          "signature": "dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)",
+          "line": 120,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "obj",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fp",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "skipkeys",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "False",
+              "required": false
+            },
+            {
+              "name": "ensure_ascii",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "check_circular",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "allow_nan",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "cls",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "indent",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "separators",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "default",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "sort_keys",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "False",
+              "required": false
+            },
+            {
+              "name": "kw",
+              "kind": "variadic keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": "Serialize ``obj`` as a JSON formatted stream to ``fp`` (a\n    ``.write()``-supporting file-like object).\n\n    If ``skipkeys`` is true then ``dict`` keys that are not basic types\n    (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped\n    instead of raising a ``TypeError``.\n\n    If ``ensure_ascii`` is false, then the strings written to ``fp`` can\n    contain non-ASCII and non-printable characters if they appear in strings\n    contained in ``obj``. Otherwise, all such characters are escaped in JSON\n    strings.\n\n    If ``check_circular`` is false, then the circular reference check\n    for container types will be skipped and a circular reference will\n    result in an ``RecursionError`` (or worse).\n\n    If ``allow_nan`` is false, then it will be a ``ValueError`` to\n    serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``)\n    in strict compliance of the JSON specification, instead of using the\n    JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).\n\n    If ``indent`` is a non-negative integer, then JSON array elements and\n    object members will be pretty-printed with that indent level. An indent\n    level of 0 will only insert newlines. ``None`` is the default and gives\n    a representation with no newlines inserted.\n\n    If specified, ``separators`` should be an ``(item_separator,\n    key_separator)`` tuple.  The default is ``(', ', ': ')`` if *indent* is\n    ``None`` and ``(',', ': ')`` otherwise.  To get the most compact JSON\n    representation, you should specify ``(',', ':')`` to eliminate\n    whitespace.\n\n    ``default(obj)`` is a function that should return a serializable version\n    of obj or raise TypeError. The default simply raises TypeError.\n\n    If *sort_keys* is true (default: ``False``), then the output of\n    dictionaries will be sorted by key.\n\n    To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the\n    ``.default()`` method to serialize additional types), specify it with\n    the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.\n\n    "
+        },
+        {
+          "name": "dumps",
+          "kind": "function",
+          "signature": "dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)",
+          "line": 185,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "obj",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "skipkeys",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "False",
+              "required": false
+            },
+            {
+              "name": "ensure_ascii",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "check_circular",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "allow_nan",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "cls",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "indent",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "separators",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "default",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "sort_keys",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "False",
+              "required": false
+            },
+            {
+              "name": "kw",
+              "kind": "variadic keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": "Serialize ``obj`` to a JSON formatted ``str``.\n\n    If ``skipkeys`` is true then ``dict`` keys that are not basic types\n    (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped\n    instead of raising a ``TypeError``.\n\n    If ``ensure_ascii`` is false, then the return value can contain\n    non-ASCII and non-printable characters if they appear in strings\n    contained in ``obj``.  Otherwise, all such characters are escaped in\n    JSON strings.\n\n    If ``check_circular`` is false, then the circular reference check\n    for container types will be skipped and a circular reference will\n    result in an ``RecursionError`` (or worse).\n\n    If ``allow_nan`` is false, then it will be a ``ValueError`` to\n    serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in\n    strict compliance of the JSON specification, instead of using the\n    JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).\n\n    If ``indent`` is a non-negative integer, then JSON array elements and\n    object members will be pretty-printed with that indent level. An indent\n    level of 0 will only insert newlines. ``None`` is the default and gives\n    a representation with no newlines inserted.\n\n    If specified, ``separators`` should be an ``(item_separator,\n    key_separator)`` tuple.  The default is ``(', ', ': ')`` if *indent* is\n    ``None`` and ``(',', ': ')`` otherwise.  To get the most compact JSON\n    representation, you should specify ``(',', ':')`` to eliminate\n    whitespace.\n\n    ``default(obj)`` is a function that should return a serializable version\n    of obj or raise TypeError. The default simply raises TypeError.\n\n    If *sort_keys* is true (default: ``False``), then the output of\n    dictionaries will be sorted by key.\n\n    To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the\n    ``.default()`` method to serialize additional types), specify it with\n    the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.\n\n    "
+        },
+        {
+          "name": "_default_decoder",
+          "kind": "assignment",
+          "line": 245,
+          "source": "_default_decoder = JSONDecoder(object_hook=None, object_pairs_hook=None)"
+        },
+        {
+          "name": "detect_encoding",
+          "kind": "function",
+          "signature": "detect_encoding(b)",
+          "line": 248,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "b",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        },
+        {
+          "name": "load",
+          "kind": "function",
+          "signature": "load(fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)",
+          "line": 278,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "fp",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "cls",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "object_hook",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "parse_float",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "parse_int",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "parse_constant",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "object_pairs_hook",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "kw",
+              "kind": "variadic keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": "Deserialize ``fp`` (a ``.read()``-supporting file-like object containing\n    a JSON document) to a Python object.\n\n    ``object_hook`` is an optional function that will be called with the\n    result of any object literal decode (a ``dict``). The return value of\n    ``object_hook`` will be used instead of the ``dict``. This feature\n    can be used to implement custom decoders (e.g. JSON-RPC class hinting).\n\n    ``object_pairs_hook`` is an optional function that will be called with\n    the result of any object literal decoded with an ordered list of pairs.\n    The return value of ``object_pairs_hook`` will be used instead of the\n    ``dict``.  This feature can be used to implement custom decoders.  If\n    ``object_hook`` is also defined, the ``object_pairs_hook`` takes\n    priority.\n\n    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``\n    kwarg; otherwise ``JSONDecoder`` is used.\n    "
+        },
+        {
+          "name": "loads",
+          "kind": "function",
+          "signature": "loads(s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)",
+          "line": 304,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "cls",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "object_hook",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "parse_float",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "parse_int",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "parse_constant",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "object_pairs_hook",
+              "kind": "keyword-only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "kw",
+              "kind": "variadic keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": "Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance\n    containing a JSON document) to a Python object.\n\n    ``object_hook`` is an optional function that will be called with the\n    result of any object literal decode (a ``dict``). The return value of\n    ``object_hook`` will be used instead of the ``dict``. This feature\n    can be used to implement custom decoders (e.g. JSON-RPC class hinting).\n\n    ``object_pairs_hook`` is an optional function that will be called with\n    the result of any object literal decoded with an ordered list of pairs.\n    The return value of ``object_pairs_hook`` will be used instead of the\n    ``dict``.  This feature can be used to implement custom decoders.  If\n    ``object_hook`` is also defined, the ``object_pairs_hook`` takes\n    priority.\n\n    ``parse_float``, if specified, will be called with the string\n    of every JSON float to be decoded. By default this is equivalent to\n    float(num_str). This can be used to use another datatype or parser\n    for JSON floats (e.g. decimal.Decimal).\n\n    ``parse_int``, if specified, will be called with the string\n    of every JSON int to be decoded. By default this is equivalent to\n    int(num_str). This can be used to use another datatype or parser\n    for JSON integers (e.g. float).\n\n    ``parse_constant``, if specified, will be called with one of the\n    following strings: -Infinity, Infinity, NaN.\n    This can be used to raise an exception if invalid JSON numbers\n    are encountered.\n\n    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``\n    kwarg; otherwise ``JSONDecoder`` is used.\n    "
+        }
+      ],
+      "exports": [
+        "dump",
+        "dumps",
+        "load",
+        "loads",
+        "JSONDecoder",
+        "JSONDecodeError",
+        "JSONEncoder"
+      ],
+      "page": "modules/00000-json.md"
+    },
+    {
+      "module": "json.__main__",
+      "source": "json/__main__.py",
+      "docstring": "Command-line tool to validate and pretty-print JSON\n\nUsage::\n\n    $ echo '{\"json\":\"obj\"}' | python -m json\n    {\n        \"json\": \"obj\"\n    }\n    $ echo '{ 1.2:3.4}' | python -m json\n    Expecting property name enclosed in double quotes: line 1 column 3 (char 2)\n\n",
+      "members": [
+        {
+          "name": "import json.tool",
+          "kind": "import",
+          "line": 13,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "json.tool",
+              "local": "json"
+            }
+          ]
+        }
+      ],
+      "exports": null,
+      "page": "modules/00001-json.__main__.md"
+    },
+    {
+      "module": "json.decoder",
+      "source": "json/decoder.py",
+      "docstring": "Implementation of JSONDecoder\n",
+      "members": [
+        {
+          "name": "import re",
+          "kind": "import",
+          "line": 3,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "re",
+              "local": "re"
+            }
+          ]
+        },
+        {
+          "name": "from json import scanner",
+          "kind": "import",
+          "line": 5,
+          "from_module": "json",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "scanner",
+              "local": "scanner"
+            }
+          ]
+        },
+        {
+          "name": "from _json import scanstring as c_scanstring",
+          "kind": "import",
+          "line": 7,
+          "from_module": "_json",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "scanstring",
+              "local": "c_scanstring"
+            }
+          ],
+          "conditional": true
+        },
+        {
+          "name": "c_scanstring",
+          "kind": "assignment",
+          "line": 9,
+          "source": "c_scanstring = None",
+          "conditional": true
+        },
+        {
+          "name": "__all__",
+          "kind": "assignment",
+          "line": 11,
+          "source": "__all__ = ['JSONDecoder', 'JSONDecodeError']"
+        },
+        {
+          "name": "FLAGS",
+          "kind": "assignment",
+          "line": 13,
+          "source": "FLAGS = re.VERBOSE | re.MULTILINE | re.DOTALL"
+        },
+        {
+          "name": "NaN",
+          "kind": "assignment",
+          "line": 15,
+          "source": "NaN = float('nan')"
+        },
+        {
+          "name": "PosInf",
+          "kind": "assignment",
+          "line": 16,
+          "source": "PosInf = float('inf')"
+        },
+        {
+          "name": "NegInf",
+          "kind": "assignment",
+          "line": 17,
+          "source": "NegInf = float('-inf')"
+        },
+        {
+          "name": "JSONDecodeError",
+          "kind": "class",
+          "line": 20,
+          "bases": [
+            "ValueError"
+          ],
+          "decorators": [],
+          "docstring": "Subclass of ValueError with the following additional properties:\n\n    msg: The unformatted error message\n    doc: The JSON document being parsed\n    pos: The start index of doc where parsing failed\n    lineno: The line corresponding to pos\n    colno: The column corresponding to pos\n\n    ",
+          "members": [
+            {
+              "name": "__init__",
+              "kind": "function",
+              "signature": "__init__(self, msg, doc, pos)",
+              "line": 31,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "msg",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "doc",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "pos",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                }
+              ],
+              "returns": null,
+              "docstring": null
+            },
+            {
+              "name": "__reduce__",
+              "kind": "function",
+              "signature": "__reduce__(self)",
+              "line": 42,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                }
+              ],
+              "returns": null,
+              "docstring": null
+            }
+          ]
+        },
+        {
+          "name": "_CONSTANTS",
+          "kind": "assignment",
+          "line": 46,
+          "source": "_CONSTANTS = {'-Infinity': NegInf, 'Infinity': PosInf, 'NaN': NaN}"
+        },
+        {
+          "name": "HEXDIGITS",
+          "kind": "assignment",
+          "line": 53,
+          "source": "HEXDIGITS = re.compile('[0-9A-Fa-f]{4}', FLAGS)"
+        },
+        {
+          "name": "STRINGCHUNK",
+          "kind": "assignment",
+          "line": 54,
+          "source": "STRINGCHUNK = re.compile('(.*?)([\"\\\\\\\\\\\\x00-\\\\x1f])', FLAGS)"
+        },
+        {
+          "name": "BACKSLASH",
+          "kind": "assignment",
+          "line": 55,
+          "source": "BACKSLASH = {'\"': '\"', '\\\\': '\\\\', '/': '/', 'b': '\\x08', 'f': '\\x0c', 'n': '\\n', 'r': '\\r', 't': '\\t'}"
+        },
+        {
+          "name": "_decode_uXXXX",
+          "kind": "function",
+          "signature": "_decode_uXXXX(s, pos, _m=HEXDIGITS.match)",
+          "line": 60,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "pos",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_m",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "HEXDIGITS.match",
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        },
+        {
+          "name": "py_scanstring",
+          "kind": "function",
+          "signature": "py_scanstring(s, end, strict=True, _b=BACKSLASH, _m=STRINGCHUNK.match)",
+          "line": 70,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "end",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "strict",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            },
+            {
+              "name": "_b",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "BACKSLASH",
+              "required": false
+            },
+            {
+              "name": "_m",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "STRINGCHUNK.match",
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": "Scan the string s for a JSON string. End is the index of the\n    character in s after the quote that started the JSON string.\n    Unescapes all valid JSON string escape sequences and raises ValueError\n    on attempt to decode an invalid string. If strict is False then literal\n    control characters are allowed in the string.\n\n    Returns a tuple of the decoded string and the index of the character in s\n    after the end quote."
+        },
+        {
+          "name": "scanstring",
+          "kind": "assignment",
+          "line": 131,
+          "source": "scanstring = c_scanstring or py_scanstring"
+        },
+        {
+          "name": "WHITESPACE",
+          "kind": "assignment",
+          "line": 133,
+          "source": "WHITESPACE = re.compile('[ \\\\t\\\\n\\\\r]*', FLAGS)"
+        },
+        {
+          "name": "WHITESPACE_STR",
+          "kind": "assignment",
+          "line": 134,
+          "source": "WHITESPACE_STR = ' \\t\\n\\r'"
+        },
+        {
+          "name": "JSONObject",
+          "kind": "function",
+          "signature": "JSONObject(s_and_end, strict, scan_once, object_hook, object_pairs_hook, memo=None, _w=WHITESPACE.match, _ws=WHITESPACE_STR)",
+          "line": 137,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s_and_end",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "strict",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "scan_once",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object_hook",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object_pairs_hook",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "memo",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "_w",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "WHITESPACE.match",
+              "required": false
+            },
+            {
+              "name": "_ws",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "WHITESPACE_STR",
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        },
+        {
+          "name": "JSONArray",
+          "kind": "function",
+          "signature": "JSONArray(s_and_end, scan_once, _w=WHITESPACE.match, _ws=WHITESPACE_STR)",
+          "line": 221,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s_and_end",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "scan_once",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_w",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "WHITESPACE.match",
+              "required": false
+            },
+            {
+              "name": "_ws",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "WHITESPACE_STR",
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        },
+        {
+          "name": "JSONDecoder",
+          "kind": "class",
+          "line": 262,
+          "bases": [
+            "object"
+          ],
+          "decorators": [],
+          "docstring": "Simple JSON <https://json.org> decoder\n\n    Performs the following translations in decoding by default:\n\n    +---------------+-------------------+\n    | JSON          | Python            |\n    +===============+===================+\n    | object        | dict              |\n    +---------------+-------------------+\n    | array         | list              |\n    +---------------+-------------------+\n    | string        | str               |\n    +---------------+-------------------+\n    | number (int)  | int               |\n    +---------------+-------------------+\n    | number (real) | float             |\n    +---------------+-------------------+\n    | true          | True              |\n    +---------------+-------------------+\n    | false         | False             |\n    +---------------+-------------------+\n    | null          | None              |\n    +---------------+-------------------+\n\n    It also understands ``NaN``, ``Infinity``, and ``-Infinity`` as\n    their corresponding ``float`` values, which is outside the JSON spec.\n\n    ",
+          "members": [
+            {
+              "name": "__init__",
+              "kind": "function",
+              "signature": "__init__(self, *, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)",
+              "line": 292,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "object_hook",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                },
+                {
+                  "name": "parse_float",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                },
+                {
+                  "name": "parse_int",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                },
+                {
+                  "name": "parse_constant",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                },
+                {
+                  "name": "strict",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "True",
+                  "required": false
+                },
+                {
+                  "name": "object_pairs_hook",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                }
+              ],
+              "returns": null,
+              "docstring": "``object_hook``, if specified, will be called with the result\n        of every JSON object decoded and its return value will be used in\n        place of the given ``dict``.  This can be used to provide custom\n        deserializations (e.g. to support JSON-RPC class hinting).\n\n        ``object_pairs_hook``, if specified will be called with the result\n        of every JSON object decoded with an ordered list of pairs.  The\n        return value of ``object_pairs_hook`` will be used instead of the\n        ``dict``.  This feature can be used to implement custom decoders.\n        If ``object_hook`` is also defined, the ``object_pairs_hook`` takes\n        priority.\n\n        ``parse_float``, if specified, will be called with the string\n        of every JSON float to be decoded. By default this is equivalent to\n        float(num_str). This can be used to use another datatype or parser\n        for JSON floats (e.g. decimal.Decimal).\n\n        ``parse_int``, if specified, will be called with the string\n        of every JSON int to be decoded. By default this is equivalent to\n        int(num_str). This can be used to use another datatype or parser\n        for JSON integers (e.g. float).\n\n        ``parse_constant``, if specified, will be called with one of the\n        following strings: -Infinity, Infinity, NaN.\n        This can be used to raise an exception if invalid JSON numbers\n        are encountered.\n\n        If ``strict`` is false (true is the default), then control\n        characters will be allowed inside strings.  Control characters in\n        this context are those with character codes in the 0-31 range,\n        including ``'\\t'`` (tab), ``'\\n'``, ``'\\r'`` and ``'\\0'``.\n        "
+            },
+            {
+              "name": "decode",
+              "kind": "function",
+              "signature": "decode(self, s, _w=WHITESPACE.match)",
+              "line": 340,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "s",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "_w",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": "WHITESPACE.match",
+                  "required": false
+                }
+              ],
+              "returns": null,
+              "docstring": "Return the Python representation of ``s`` (a ``str`` instance\n        containing a JSON document).\n\n        "
+            },
+            {
+              "name": "raw_decode",
+              "kind": "function",
+              "signature": "raw_decode(self, s, idx=0)",
+              "line": 351,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "s",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "idx",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": "0",
+                  "required": false
+                }
+              ],
+              "returns": null,
+              "docstring": "Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n\n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n\n        "
+            }
+          ]
+        }
+      ],
+      "exports": [
+        "JSONDecoder",
+        "JSONDecodeError"
+      ],
+      "page": "modules/00002-json.decoder.md"
+    },
+    {
+      "module": "json.encoder",
+      "source": "json/encoder.py",
+      "docstring": "Implementation of JSONEncoder\n",
+      "members": [
+        {
+          "name": "import re",
+          "kind": "import",
+          "line": 3,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "re",
+              "local": "re"
+            }
+          ]
+        },
+        {
+          "name": "from _json import encode_basestring_ascii as c_encode_basestring_ascii",
+          "kind": "import",
+          "line": 6,
+          "from_module": "_json",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "encode_basestring_ascii",
+              "local": "c_encode_basestring_ascii"
+            }
+          ],
+          "conditional": true
+        },
+        {
+          "name": "c_encode_basestring_ascii",
+          "kind": "assignment",
+          "line": 8,
+          "source": "c_encode_basestring_ascii = None",
+          "conditional": true
+        },
+        {
+          "name": "from _json import encode_basestring as c_encode_basestring",
+          "kind": "import",
+          "line": 10,
+          "from_module": "_json",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "encode_basestring",
+              "local": "c_encode_basestring"
+            }
+          ],
+          "conditional": true
+        },
+        {
+          "name": "c_encode_basestring",
+          "kind": "assignment",
+          "line": 12,
+          "source": "c_encode_basestring = None",
+          "conditional": true
+        },
+        {
+          "name": "from _json import make_encoder as c_make_encoder",
+          "kind": "import",
+          "line": 14,
+          "from_module": "_json",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "make_encoder",
+              "local": "c_make_encoder"
+            }
+          ],
+          "conditional": true
+        },
+        {
+          "name": "c_make_encoder",
+          "kind": "assignment",
+          "line": 16,
+          "source": "c_make_encoder = None",
+          "conditional": true
+        },
+        {
+          "name": "ESCAPE",
+          "kind": "assignment",
+          "line": 18,
+          "source": "ESCAPE = re.compile('[\\\\x00-\\\\x1f\\\\\\\\\"\\\\b\\\\f\\\\n\\\\r\\\\t]')"
+        },
+        {
+          "name": "ESCAPE_ASCII",
+          "kind": "assignment",
+          "line": 19,
+          "source": "ESCAPE_ASCII = re.compile('([\\\\\\\\\"]|[^\\\\ -~])')"
+        },
+        {
+          "name": "HAS_UTF8",
+          "kind": "assignment",
+          "line": 20,
+          "source": "HAS_UTF8 = re.compile(b'[\\x80-\\xff]')"
+        },
+        {
+          "name": "ESCAPE_DCT",
+          "kind": "assignment",
+          "line": 21,
+          "source": "ESCAPE_DCT = {'\\\\': '\\\\\\\\', '\"': '\\\\\"', '\\x08': '\\\\b', '\\x0c': '\\\\f', '\\n': '\\\\n', '\\r': '\\\\r', '\\t': '\\\\t'}"
+        },
+        {
+          "name": "INFINITY",
+          "kind": "assignment",
+          "line": 35,
+          "source": "INFINITY = float('inf')"
+        },
+        {
+          "name": "py_encode_basestring",
+          "kind": "function",
+          "signature": "py_encode_basestring(s)",
+          "line": 37,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null,
+          "docstring": "Return a JSON representation of a Python string\n\n    "
+        },
+        {
+          "name": "encode_basestring",
+          "kind": "assignment",
+          "line": 46,
+          "source": "encode_basestring = c_encode_basestring or py_encode_basestring"
+        },
+        {
+          "name": "py_encode_basestring_ascii",
+          "kind": "function",
+          "signature": "py_encode_basestring_ascii(s)",
+          "line": 49,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "s",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null,
+          "docstring": "Return an ASCII-only JSON representation of a Python string\n\n    "
+        },
+        {
+          "name": "encode_basestring_ascii",
+          "kind": "assignment",
+          "line": 71,
+          "source": "encode_basestring_ascii = c_encode_basestring_ascii or py_encode_basestring_ascii"
+        },
+        {
+          "name": "JSONEncoder",
+          "kind": "class",
+          "line": 74,
+          "bases": [
+            "object"
+          ],
+          "decorators": [],
+          "docstring": "Extensible JSON <https://json.org> encoder for Python data structures.\n\n    Supports the following objects and types by default:\n\n    +-------------------+---------------+\n    | Python            | JSON          |\n    +===================+===============+\n    | dict              | object        |\n    +-------------------+---------------+\n    | list, tuple       | array         |\n    +-------------------+---------------+\n    | str               | string        |\n    +-------------------+---------------+\n    | int, float        | number        |\n    +-------------------+---------------+\n    | True              | true          |\n    +-------------------+---------------+\n    | False             | false         |\n    +-------------------+---------------+\n    | None              | null          |\n    +-------------------+---------------+\n\n    To extend this to recognize other objects, subclass and implement a\n    ``.default()`` method with another method that returns a serializable\n    object for ``o`` if possible, otherwise it should call the superclass\n    implementation (to raise ``TypeError``).\n\n    ",
+          "members": [
+            {
+              "name": "item_separator",
+              "kind": "assignment",
+              "line": 103,
+              "source": "item_separator = ', '"
+            },
+            {
+              "name": "key_separator",
+              "kind": "assignment",
+              "line": 104,
+              "source": "key_separator = ': '"
+            },
+            {
+              "name": "__init__",
+              "kind": "function",
+              "signature": "__init__(self, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)",
+              "line": 105,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "skipkeys",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "False",
+                  "required": false
+                },
+                {
+                  "name": "ensure_ascii",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "True",
+                  "required": false
+                },
+                {
+                  "name": "check_circular",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "True",
+                  "required": false
+                },
+                {
+                  "name": "allow_nan",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "True",
+                  "required": false
+                },
+                {
+                  "name": "sort_keys",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "False",
+                  "required": false
+                },
+                {
+                  "name": "indent",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                },
+                {
+                  "name": "separators",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                },
+                {
+                  "name": "default",
+                  "kind": "keyword-only",
+                  "annotation": null,
+                  "default": "None",
+                  "required": false
+                }
+              ],
+              "returns": null,
+              "docstring": "Constructor for JSONEncoder, with sensible defaults.\n\n        If skipkeys is false, then it is a TypeError to attempt\n        encoding of keys that are not str, int, float, bool or None.\n        If skipkeys is True, such items are simply skipped.\n\n        If ensure_ascii is true, the output is guaranteed to be str objects\n        with all incoming non-ASCII and non-printable characters escaped.\n        If ensure_ascii is false, the output can contain non-ASCII and\n        non-printable characters.\n\n        If check_circular is true, then lists, dicts, and custom encoded\n        objects will be checked for circular references during encoding to\n        prevent an infinite recursion (which would cause an RecursionError).\n        Otherwise, no such check takes place.\n\n        If allow_nan is true, then NaN, Infinity, and -Infinity will be\n        encoded as such.  This behavior is not JSON specification compliant,\n        but is consistent with most JavaScript based encoders and decoders.\n        Otherwise, it will be a ValueError to encode such floats.\n\n        If sort_keys is true, then the output of dictionaries will be\n        sorted by key; this is useful for regression tests to ensure\n        that JSON serializations can be compared on a day-to-day basis.\n\n        If indent is a non-negative integer, then JSON array\n        elements and object members will be pretty-printed with that\n        indent level.  An indent level of 0 will only insert newlines.\n        None is the most compact representation.\n\n        If specified, separators should be an (item_separator,\n        key_separator) tuple.  The default is (', ', ': ') if *indent* is\n        ``None`` and (',', ': ') otherwise.  To get the most compact JSON\n        representation, you should specify (',', ':') to eliminate\n        whitespace.\n\n        If specified, default is a function that gets called for objects\n        that can't otherwise be serialized.  It should return a JSON\n        encodable version of the object or raise a ``TypeError``.\n\n        "
+            },
+            {
+              "name": "default",
+              "kind": "function",
+              "signature": "default(self, o)",
+              "line": 163,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "o",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                }
+              ],
+              "returns": null,
+              "docstring": "Implement this method in a subclass such that it returns\n        a serializable object for ``o``, or calls the base implementation\n        (to raise a ``TypeError``).\n\n        For example, to support arbitrary iterators, you could\n        implement default like this::\n\n            def default(self, o):\n                try:\n                    iterable = iter(o)\n                except TypeError:\n                    pass\n                else:\n                    return list(iterable)\n                # Let the base class default method raise the TypeError\n                return super().default(o)\n\n        "
+            },
+            {
+              "name": "encode",
+              "kind": "function",
+              "signature": "encode(self, o)",
+              "line": 185,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "o",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                }
+              ],
+              "returns": null,
+              "docstring": "Return a JSON string representation of a Python data structure.\n\n        >>> from json.encoder import JSONEncoder\n        >>> JSONEncoder().encode({\"foo\": [\"bar\", \"baz\"]})\n        '{\"foo\": [\"bar\", \"baz\"]}'\n\n        "
+            },
+            {
+              "name": "iterencode",
+              "kind": "function",
+              "signature": "iterencode(self, o, _one_shot=False)",
+              "line": 207,
+              "decorators": [],
+              "parameters": [
+                {
+                  "name": "self",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "o",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": null,
+                  "required": true
+                },
+                {
+                  "name": "_one_shot",
+                  "kind": "positional or keyword",
+                  "annotation": null,
+                  "default": "False",
+                  "required": false
+                }
+              ],
+              "returns": null,
+              "docstring": "Encode the given object and yield each string\n        representation as available.\n\n        For example::\n\n            for chunk in JSONEncoder().iterencode(bigobject):\n                mysocket.write(chunk)\n\n        "
+            }
+          ]
+        },
+        {
+          "name": "_make_iterencode",
+          "kind": "function",
+          "signature": "_make_iterencode(markers, _default, _encoder, _indent, _floatstr, _key_separator, _item_separator, _sort_keys, _skipkeys, _one_shot, ValueError=ValueError, dict=dict, float=float, id=id, int=int, isinstance=isinstance, list=list, str=str, tuple=tuple, _intstr=int.__repr__)",
+          "line": 265,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "markers",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_encoder",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_indent",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_floatstr",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_key_separator",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_item_separator",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_sort_keys",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_skipkeys",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "_one_shot",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "ValueError",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "ValueError",
+              "required": false
+            },
+            {
+              "name": "dict",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "dict",
+              "required": false
+            },
+            {
+              "name": "float",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "float",
+              "required": false
+            },
+            {
+              "name": "id",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "id",
+              "required": false
+            },
+            {
+              "name": "int",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "int",
+              "required": false
+            },
+            {
+              "name": "isinstance",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "isinstance",
+              "required": false
+            },
+            {
+              "name": "list",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "list",
+              "required": false
+            },
+            {
+              "name": "str",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "str",
+              "required": false
+            },
+            {
+              "name": "tuple",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "tuple",
+              "required": false
+            },
+            {
+              "name": "_intstr",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "int.__repr__",
+              "required": false
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        }
+      ],
+      "exports": null,
+      "page": "modules/00003-json.encoder.md"
+    },
+    {
+      "module": "json.scanner",
+      "source": "json/scanner.py",
+      "docstring": "JSON token scanner\n",
+      "members": [
+        {
+          "name": "import re",
+          "kind": "import",
+          "line": 3,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "re",
+              "local": "re"
+            }
+          ]
+        },
+        {
+          "name": "from _json import make_scanner as c_make_scanner",
+          "kind": "import",
+          "line": 5,
+          "from_module": "_json",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "make_scanner",
+              "local": "c_make_scanner"
+            }
+          ],
+          "conditional": true
+        },
+        {
+          "name": "c_make_scanner",
+          "kind": "assignment",
+          "line": 7,
+          "source": "c_make_scanner = None",
+          "conditional": true
+        },
+        {
+          "name": "__all__",
+          "kind": "assignment",
+          "line": 9,
+          "source": "__all__ = ['make_scanner']"
+        },
+        {
+          "name": "NUMBER_RE",
+          "kind": "assignment",
+          "line": 11,
+          "source": "NUMBER_RE = re.compile('(-?(?:0|[1-9][0-9]*))(\\\\.[0-9]+)?([eE][-+]?[0-9]+)?', re.VERBOSE | re.MULTILINE | re.DOTALL)"
+        },
+        {
+          "name": "py_make_scanner",
+          "kind": "function",
+          "signature": "py_make_scanner(context)",
+          "line": 15,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "context",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        },
+        {
+          "name": "make_scanner",
+          "kind": "assignment",
+          "line": 73,
+          "source": "make_scanner = c_make_scanner or py_make_scanner"
+        }
+      ],
+      "exports": [
+        "make_scanner"
+      ],
+      "page": "modules/00004-json.scanner.md"
+    },
+    {
+      "module": "json.tool",
+      "source": "json/tool.py",
+      "docstring": "Command-line tool to validate and pretty-print JSON\n\nSee `json.__main__` for a usage example (invocation as\n`python -m json.tool` is supported for backwards compatibility).\n",
+      "members": [
+        {
+          "name": "import argparse",
+          "kind": "import",
+          "line": 6,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "argparse",
+              "local": "argparse"
+            }
+          ]
+        },
+        {
+          "name": "import json",
+          "kind": "import",
+          "line": 7,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "json",
+              "local": "json"
+            }
+          ]
+        },
+        {
+          "name": "import re",
+          "kind": "import",
+          "line": 8,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "re",
+              "local": "re"
+            }
+          ]
+        },
+        {
+          "name": "import sys",
+          "kind": "import",
+          "line": 9,
+          "from_module": null,
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "sys",
+              "local": "sys"
+            }
+          ]
+        },
+        {
+          "name": "from _colorize import get_theme, can_colorize",
+          "kind": "import",
+          "line": 10,
+          "from_module": "_colorize",
+          "level": 0,
+          "bindings": [
+            {
+              "imported": "get_theme",
+              "local": "get_theme"
+            },
+            {
+              "imported": "can_colorize",
+              "local": "can_colorize"
+            }
+          ]
+        },
+        {
+          "name": "_color_pattern",
+          "kind": "assignment",
+          "line": 17,
+          "source": "_color_pattern = re.compile('\\n    (?P<key>\"(\\\\\\\\.|[^\"\\\\\\\\])*\")(?=:)           |\\n    (?P<string>\"(\\\\\\\\.|[^\"\\\\\\\\])*\")             |\\n    (?P<number>NaN|-?Infinity|[0-9\\\\-+.Ee]+) |\\n    (?P<boolean>true|false)                 |\\n    (?P<null>null)\\n', re.VERBOSE)"
+        },
+        {
+          "name": "_group_to_theme_color",
+          "kind": "assignment",
+          "line": 25,
+          "source": "_group_to_theme_color = {'key': 'definition', 'string': 'string', 'number': 'number', 'boolean': 'keyword', 'null': 'keyword'}"
+        },
+        {
+          "name": "_colorize_json",
+          "kind": "function",
+          "signature": "_colorize_json(json_str, theme)",
+          "line": 34,
+          "decorators": [],
+          "parameters": [
+            {
+              "name": "json_str",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "theme",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null,
+          "docstring": null
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "signature": "main()",
+          "line": 44,
+          "decorators": [],
+          "parameters": [],
+          "returns": null,
+          "docstring": null
+        }
+      ],
+      "exports": null,
+      "page": "modules/00005-json.tool.md"
+    }
+  ],
+  "errors": [],
+  "official_documentation": {
+    "source_url": "https://docs.python.org/3.14/library/json.html",
+    "source_basis": "Python official documentation",
+    "enriched_apis": 4,
+    "fetched_pages": 1,
+    "pages": [
+      {
+        "url": "https://docs.python.org/3.14/library/json.html",
+        "retrieved_at": "2026-10-07T15:46:13.465380+00:00",
+        "sha256": "c83038e296ee1c28be44117b374c7c9cfa16b507d3f7f395917614e147cd12b0"
+      }
+    ],
+    "unresolved_apis": [
+      {
+        "api": "json.JSONDecodeError",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONDecoder",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONDecoder.decode",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONDecoder.raw_decode",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONEncoder",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONEncoder.default",
+        "missing": [
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONEncoder.encode",
+        "missing": [
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.JSONEncoder.iterencode",
+        "missing": [
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.dump",
+        "missing": [
+          "examples",
+          "returns",
+          "raises"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.dumps",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.load",
+        "missing": [
+          "examples",
+          "returns"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.loads",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "Not present in matched official API section"
+      },
+      {
+        "api": "json.decoder.JSONDecodeError",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.decoder.JSONDecoder",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.decoder.JSONDecoder.decode",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.decoder.JSONDecoder.raw_decode",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.encoder.JSONEncoder",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.encoder.JSONEncoder.default",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.encoder.JSONEncoder.encode",
+        "missing": [
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.encoder.JSONEncoder.iterencode",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.encoder.py_encode_basestring",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.encoder.py_encode_basestring_ascii",
+        "missing": [
+          "examples",
+          "returns",
+          "raises",
+          "parameters"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      },
+      {
+        "api": "json.tool.main",
+        "missing": [
+          "description",
+          "examples",
+          "returns",
+          "raises"
+        ],
+        "reason": "API anchor not found within fetch limit or pages failed"
+      }
+    ],
+    "errors": []
+  },
+  "developer_documentation": {
+    "public_api_candidates": 23,
+    "with_docstrings": 22,
+    "with_signatures": 23,
+    "with_docstring_examples": 2
+  }
+}

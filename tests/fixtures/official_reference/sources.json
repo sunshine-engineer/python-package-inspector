@@ -1,0 +1,5 @@
+{
+  "langchain": "https://reference.langchain.com/python/langchain/agents/factory/create_agent",
+  "langgraph": "https://reference.langchain.com/python/langgraph/graph/state/StateGraph",
+  "langsmith": "https://reference.langchain.com/python/langsmith/run_helpers/traceable"
+}

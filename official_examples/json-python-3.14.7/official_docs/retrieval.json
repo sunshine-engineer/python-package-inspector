@@ -1,0 +1,239 @@
+{
+  "source_url": "https://docs.python.org/3.14/library/json.html",
+  "source_basis": "Python official documentation",
+  "enriched_apis": 4,
+  "fetched_pages": 1,
+  "pages": [
+    {
+      "url": "https://docs.python.org/3.14/library/json.html",
+      "retrieved_at": "2026-10-07T15:46:13.465380+00:00",
+      "sha256": "c83038e296ee1c28be44117b374c7c9cfa16b507d3f7f395917614e147cd12b0"
+    }
+  ],
+  "unresolved_apis": [
+    {
+      "api": "json.JSONDecodeError",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONDecoder",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONDecoder.decode",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONDecoder.raw_decode",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONEncoder",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONEncoder.default",
+      "missing": [
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONEncoder.encode",
+      "missing": [
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.JSONEncoder.iterencode",
+      "missing": [
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.dump",
+      "missing": [
+        "examples",
+        "returns",
+        "raises"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.dumps",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.load",
+      "missing": [
+        "examples",
+        "returns"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.loads",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "Not present in matched official API section"
+    },
+    {
+      "api": "json.decoder.JSONDecodeError",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.decoder.JSONDecoder",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.decoder.JSONDecoder.decode",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.decoder.JSONDecoder.raw_decode",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.encoder.JSONEncoder",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.encoder.JSONEncoder.default",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.encoder.JSONEncoder.encode",
+      "missing": [
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.encoder.JSONEncoder.iterencode",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.encoder.py_encode_basestring",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.encoder.py_encode_basestring_ascii",
+      "missing": [
+        "examples",
+        "returns",
+        "raises",
+        "parameters"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    },
+    {
+      "api": "json.tool.main",
+      "missing": [
+        "description",
+        "examples",
+        "returns",
+        "raises"
+      ],
+      "reason": "API anchor not found within fetch limit or pages failed"
+    }
+  ],
+  "errors": []
+}

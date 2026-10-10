@@ -1,0 +1,1523 @@
+[
+  {
+    "qualified": "decimal.Clamped",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00000-decimal.Clamped.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Clamped.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00001-decimal.Clamped.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Clamped.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00002-decimal.Clamped.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context",
+    "module": "decimal",
+    "kind": "class",
+    "signature": "(prec=None, rounding=None, Emin=None, Emax=None, capitals=None, clamp=None, flags=None, traps=None)",
+    "summary": "The context affects almost all operations and controls rounding,",
+    "page": "api/00003-decimal.Context.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.Etiny",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return a value equal to Emin - prec + 1, which is the minimum exponent value",
+    "page": "api/00004-decimal.Context.Etiny.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.Etop",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return a value equal to Emax - prec + 1.  This is the maximum exponent",
+    "page": "api/00005-decimal.Context.Etop.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.abs",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return the absolute value of x.",
+    "page": "api/00006-decimal.Context.abs.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.add",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return the sum of x and y.",
+    "page": "api/00007-decimal.Context.add.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.canonical",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return a new instance of x.",
+    "page": "api/00008-decimal.Context.canonical.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.clear_flags",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Reset all flags to False.",
+    "page": "api/00009-decimal.Context.clear_flags.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.clear_traps",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Set all traps to False.",
+    "page": "api/00010-decimal.Context.clear_traps.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.compare",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare x and y numerically.",
+    "page": "api/00011-decimal.Context.compare.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.compare_signal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare x and y numerically.  All NaNs signal.",
+    "page": "api/00012-decimal.Context.compare_signal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.compare_total",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare x and y using their abstract representation.",
+    "page": "api/00013-decimal.Context.compare_total.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.compare_total_mag",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare x and y using their abstract representation, ignoring sign.",
+    "page": "api/00014-decimal.Context.compare_total_mag.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.copy",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return a duplicate of the context.",
+    "page": "api/00015-decimal.Context.copy.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.copy_abs",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return a copy of x with the sign set to 0.",
+    "page": "api/00016-decimal.Context.copy_abs.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.copy_decimal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return a copy of Decimal x.",
+    "page": "api/00017-decimal.Context.copy_decimal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.copy_negate",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return a copy of x with the sign inverted.",
+    "page": "api/00018-decimal.Context.copy_negate.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.copy_sign",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Copy the sign from y to x.",
+    "page": "api/00019-decimal.Context.copy_sign.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.create_decimal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, num='0', /)",
+    "summary": "Create a new Decimal instance from num, using self as the context. Unlike the",
+    "page": "api/00020-decimal.Context.create_decimal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.create_decimal_from_float",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, f, /)",
+    "summary": "Create a new Decimal instance from float f.  Unlike the Decimal.from_float()",
+    "page": "api/00021-decimal.Context.create_decimal_from_float.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.divide",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return x divided by y.",
+    "page": "api/00022-decimal.Context.divide.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.divide_int",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return x divided by y, truncated to an integer.",
+    "page": "api/00023-decimal.Context.divide_int.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.divmod",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return quotient and remainder of the division x / y.",
+    "page": "api/00024-decimal.Context.divmod.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.exp",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return e ** x.",
+    "page": "api/00025-decimal.Context.exp.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.fma",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, z, /)",
+    "summary": "Return x multiplied by y, plus z.",
+    "page": "api/00026-decimal.Context.fma.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_canonical",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is canonical, False otherwise.",
+    "page": "api/00027-decimal.Context.is_canonical.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_finite",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is finite, False otherwise.",
+    "page": "api/00028-decimal.Context.is_finite.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_infinite",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is infinite, False otherwise.",
+    "page": "api/00029-decimal.Context.is_infinite.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_nan",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is a qNaN or sNaN, False otherwise.",
+    "page": "api/00030-decimal.Context.is_nan.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_normal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is a normal number, False otherwise.",
+    "page": "api/00031-decimal.Context.is_normal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_qnan",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is a quiet NaN, False otherwise.",
+    "page": "api/00032-decimal.Context.is_qnan.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_signed",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is negative, False otherwise.",
+    "page": "api/00033-decimal.Context.is_signed.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_snan",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is a signaling NaN, False otherwise.",
+    "page": "api/00034-decimal.Context.is_snan.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_subnormal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is subnormal, False otherwise.",
+    "page": "api/00035-decimal.Context.is_subnormal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.is_zero",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return True if x is a zero, False otherwise.",
+    "page": "api/00036-decimal.Context.is_zero.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.ln",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return the natural (base e) logarithm of x.",
+    "page": "api/00037-decimal.Context.ln.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.log10",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return the base 10 logarithm of x.",
+    "page": "api/00038-decimal.Context.log10.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.logb",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return the exponent of the magnitude of the operand's MSD.",
+    "page": "api/00039-decimal.Context.logb.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.logical_and",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Applies the logical operation 'and' between each operand's digits.",
+    "page": "api/00040-decimal.Context.logical_and.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.logical_invert",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Invert all the digits in the operand.",
+    "page": "api/00041-decimal.Context.logical_invert.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.logical_or",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Applies the logical operation 'or' between each operand's digits.",
+    "page": "api/00042-decimal.Context.logical_or.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.logical_xor",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Applies the logical operation 'xor' between each operand's digits.",
+    "page": "api/00043-decimal.Context.logical_xor.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.max",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare the values numerically and return the maximum.",
+    "page": "api/00044-decimal.Context.max.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.max_mag",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare the values numerically with their sign ignored.",
+    "page": "api/00045-decimal.Context.max_mag.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.min",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare the values numerically and return the minimum.",
+    "page": "api/00046-decimal.Context.min.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.min_mag",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Compare the values numerically with their sign ignored.",
+    "page": "api/00047-decimal.Context.min_mag.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.minus",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Minus corresponds to the unary prefix minus operator in Python, but applies",
+    "page": "api/00048-decimal.Context.minus.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.multiply",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return the product of x and y.",
+    "page": "api/00049-decimal.Context.multiply.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.next_minus",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return the largest representable number smaller than x.",
+    "page": "api/00050-decimal.Context.next_minus.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.next_plus",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return the smallest representable number larger than x.",
+    "page": "api/00051-decimal.Context.next_plus.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.next_toward",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return the number closest to x, in the direction towards y.",
+    "page": "api/00052-decimal.Context.next_toward.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.normalize",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Reduce x to its simplest form. Alias for reduce(x).",
+    "page": "api/00053-decimal.Context.normalize.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.number_class",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Return an indication of the class of x.",
+    "page": "api/00054-decimal.Context.number_class.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.plus",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Plus corresponds to the unary prefix plus operator in Python, but applies",
+    "page": "api/00055-decimal.Context.plus.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.power",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, a, b, modulo=None)",
+    "summary": "Compute a**b. If 'a' is negative, then 'b' must be integral. The result",
+    "page": "api/00056-decimal.Context.power.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.quantize",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return a value equal to x (rounded), having the exponent of y.",
+    "page": "api/00057-decimal.Context.quantize.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.radix",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return 10.",
+    "page": "api/00058-decimal.Context.radix.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.remainder",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return the remainder from integer division.  The sign of the result,",
+    "page": "api/00059-decimal.Context.remainder.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.remainder_near",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return x - y * n, where n is the integer nearest the exact value of x / y",
+    "page": "api/00060-decimal.Context.remainder_near.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.rotate",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return a copy of x, rotated by y places.",
+    "page": "api/00061-decimal.Context.rotate.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.same_quantum",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return True if the two operands have the same exponent.",
+    "page": "api/00062-decimal.Context.same_quantum.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.scaleb",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return the first operand after adding the second value to its exp.",
+    "page": "api/00063-decimal.Context.scaleb.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.shift",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return a copy of x, shifted by y places.",
+    "page": "api/00064-decimal.Context.shift.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.sqrt",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Square root of a non-negative number to context precision.",
+    "page": "api/00065-decimal.Context.sqrt.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.subtract",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, y, /)",
+    "summary": "Return the difference between x and y.",
+    "page": "api/00066-decimal.Context.subtract.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.to_eng_string",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Convert a number to a string, using engineering notation.",
+    "page": "api/00067-decimal.Context.to_eng_string.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.to_integral",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Identical to to_integral_value(x).",
+    "page": "api/00068-decimal.Context.to_integral.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.to_integral_exact",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Round to an integer. Signal if the result is rounded or inexact.",
+    "page": "api/00069-decimal.Context.to_integral_exact.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.to_integral_value",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Round to an integer.",
+    "page": "api/00070-decimal.Context.to_integral_value.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Context.to_sci_string",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, x, /)",
+    "summary": "Convert a number to a string using scientific notation.",
+    "page": "api/00071-decimal.Context.to_sci_string.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.ConversionSyntax",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00072-decimal.ConversionSyntax.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.ConversionSyntax.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00073-decimal.ConversionSyntax.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.ConversionSyntax.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00074-decimal.ConversionSyntax.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal",
+    "module": "decimal",
+    "kind": "class",
+    "signature": "(value='0', context=None)",
+    "summary": "Construct a new Decimal object. 'value' can be an integer, string, tuple,",
+    "page": "api/00075-decimal.Decimal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.adjusted",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the adjusted exponent of the number.  Defined as exp + digits - 1.",
+    "page": "api/00076-decimal.Decimal.adjusted.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.as_integer_ratio",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Decimal.as_integer_ratio() -> (int, int)",
+    "page": "api/00077-decimal.Decimal.as_integer_ratio.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.as_tuple",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return a tuple representation of the number.",
+    "page": "api/00078-decimal.Decimal.as_tuple.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.canonical",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the canonical encoding of the argument.  Currently, the encoding",
+    "page": "api/00079-decimal.Decimal.canonical.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.compare",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Compare self to other.  Return a decimal value:",
+    "page": "api/00080-decimal.Decimal.compare.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.compare_signal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Identical to compare, except that all NaNs signal.",
+    "page": "api/00081-decimal.Decimal.compare_signal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.compare_total",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Compare two operands using their abstract representation rather than",
+    "page": "api/00082-decimal.Decimal.compare_total.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.compare_total_mag",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Compare two operands using their abstract representation rather than their",
+    "page": "api/00083-decimal.Decimal.compare_total_mag.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.conjugate",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.",
+    "page": "api/00084-decimal.Decimal.conjugate.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.copy_abs",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the absolute value of the argument.  This operation is unaffected by",
+    "page": "api/00085-decimal.Decimal.copy_abs.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.copy_negate",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the negation of the argument.  This operation is unaffected by context",
+    "page": "api/00086-decimal.Decimal.copy_negate.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.copy_sign",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Return a copy of the first operand with the sign set to be the same as the",
+    "page": "api/00087-decimal.Decimal.copy_sign.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.exp",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return the value of the (natural) exponential function e**x at the given",
+    "page": "api/00088-decimal.Decimal.exp.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.fma",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, third, context=None)",
+    "summary": "Fused multiply-add.  Return self*other+third with no rounding of the",
+    "page": "api/00089-decimal.Decimal.fma.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.from_float",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(type, f, /)",
+    "summary": "Class method that converts a float to a decimal number, exactly.",
+    "page": "api/00090-decimal.Decimal.from_float.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.from_number",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(type, number, /)",
+    "summary": "Class method that converts a real number to a decimal number, exactly.",
+    "page": "api/00091-decimal.Decimal.from_number.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_canonical",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is canonical and False otherwise.  Currently,",
+    "page": "api/00092-decimal.Decimal.is_canonical.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_finite",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is a finite number, and False if the argument",
+    "page": "api/00093-decimal.Decimal.is_finite.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_infinite",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is either positive or negative infinity and",
+    "page": "api/00094-decimal.Decimal.is_infinite.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_nan",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is a (quiet or signaling) NaN and False",
+    "page": "api/00095-decimal.Decimal.is_nan.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_normal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return True if the argument is a normal finite non-zero number with an",
+    "page": "api/00096-decimal.Decimal.is_normal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_qnan",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is a quiet NaN, and False otherwise.",
+    "page": "api/00097-decimal.Decimal.is_qnan.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_signed",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument has a negative sign and False otherwise.",
+    "page": "api/00098-decimal.Decimal.is_signed.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_snan",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is a signaling NaN and False otherwise.",
+    "page": "api/00099-decimal.Decimal.is_snan.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_subnormal",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return True if the argument is subnormal, and False otherwise. A number is",
+    "page": "api/00100-decimal.Decimal.is_subnormal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.is_zero",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return True if the argument is a (positive or negative) zero and False",
+    "page": "api/00101-decimal.Decimal.is_zero.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.ln",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return the natural (base e) logarithm of the operand. The function always",
+    "page": "api/00102-decimal.Decimal.ln.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.log10",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return the base ten logarithm of the operand. The function always uses the",
+    "page": "api/00103-decimal.Decimal.log10.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.logb",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "For a non-zero number, return the adjusted exponent of the operand as a",
+    "page": "api/00104-decimal.Decimal.logb.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.logical_and",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Applies an 'and' operation between self and other's digits.",
+    "page": "api/00105-decimal.Decimal.logical_and.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.logical_invert",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Invert all its digits.",
+    "page": "api/00106-decimal.Decimal.logical_invert.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.logical_or",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Applies an 'or' operation between self and other's digits.",
+    "page": "api/00107-decimal.Decimal.logical_or.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.logical_xor",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Applies an 'xor' operation between self and other's digits.",
+    "page": "api/00108-decimal.Decimal.logical_xor.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.max",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Maximum of self and other.  If one operand is a quiet NaN and the other is",
+    "page": "api/00109-decimal.Decimal.max.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.max_mag",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Similar to the max() method, but the comparison is done using the absolute",
+    "page": "api/00110-decimal.Decimal.max_mag.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.min",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Minimum of self and other. If one operand is a quiet NaN and the other is",
+    "page": "api/00111-decimal.Decimal.min.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.min_mag",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Similar to the min() method, but the comparison is done using the absolute",
+    "page": "api/00112-decimal.Decimal.min_mag.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.next_minus",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return the largest number representable in the given context (or in the",
+    "page": "api/00113-decimal.Decimal.next_minus.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.next_plus",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return the smallest number representable in the given context (or in the",
+    "page": "api/00114-decimal.Decimal.next_plus.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.next_toward",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "If the two operands are unequal, return the number closest to the first",
+    "page": "api/00115-decimal.Decimal.next_toward.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.normalize",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Normalize the number by stripping the rightmost trailing zeros and",
+    "page": "api/00116-decimal.Decimal.normalize.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.number_class",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return a string describing the class of the operand.  The returned value",
+    "page": "api/00117-decimal.Decimal.number_class.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.quantize",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, exp, rounding=None, context=None)",
+    "summary": "Return a value equal to the first operand after rounding and having the",
+    "page": "api/00118-decimal.Decimal.quantize.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.radix",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return Decimal(10), the radix (base) in which the Decimal class does",
+    "page": "api/00119-decimal.Decimal.radix.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.remainder_near",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Return the remainder from dividing self by other.  This differs from",
+    "page": "api/00120-decimal.Decimal.remainder_near.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.rotate",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Return the result of rotating the digits of the first operand by an amount",
+    "page": "api/00121-decimal.Decimal.rotate.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.same_quantum",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Test whether self and other have the same exponent or whether both are NaN.",
+    "page": "api/00122-decimal.Decimal.same_quantum.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.scaleb",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Return the first operand with the exponent adjusted the second.  Equivalently,",
+    "page": "api/00123-decimal.Decimal.scaleb.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.shift",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, other, context=None)",
+    "summary": "Return the result of shifting the digits of the first operand by an amount",
+    "page": "api/00124-decimal.Decimal.shift.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.sqrt",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Return the square root of the argument to full precision. The result is",
+    "page": "api/00125-decimal.Decimal.sqrt.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.to_eng_string",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, context=None)",
+    "summary": "Convert to an engineering-type string.  Engineering notation has an exponent",
+    "page": "api/00126-decimal.Decimal.to_eng_string.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.to_integral",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, rounding=None, context=None)",
+    "summary": "Identical to the to_integral_value() method.  The to_integral() name has been",
+    "page": "api/00127-decimal.Decimal.to_integral.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.to_integral_exact",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, rounding=None, context=None)",
+    "summary": "Round to the nearest integer, signaling Inexact or Rounded as appropriate if",
+    "page": "api/00128-decimal.Decimal.to_integral_exact.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Decimal.to_integral_value",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, /, rounding=None, context=None)",
+    "summary": "Round to the nearest integer without signaling Inexact or Rounded.  The",
+    "page": "api/00129-decimal.Decimal.to_integral_value.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DecimalException",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00130-decimal.DecimalException.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DecimalException.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00131-decimal.DecimalException.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DecimalException.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00132-decimal.DecimalException.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DecimalTuple",
+    "module": "decimal",
+    "kind": "class",
+    "signature": "(sign, digits, exponent)",
+    "summary": "DecimalTuple(sign, digits, exponent)",
+    "page": "api/00133-decimal.DecimalTuple.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DecimalTuple.count",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, value, /)",
+    "summary": "Return number of occurrences of value.",
+    "page": "api/00134-decimal.DecimalTuple.count.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DecimalTuple.index",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, value, start=0, stop=9223372036854775807, /)",
+    "summary": "Return first index of value.",
+    "page": "api/00135-decimal.DecimalTuple.index.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionByZero",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Second argument to a division or modulo operation was zero.",
+    "page": "api/00136-decimal.DivisionByZero.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionByZero.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00137-decimal.DivisionByZero.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionByZero.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00138-decimal.DivisionByZero.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionImpossible",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00139-decimal.DivisionImpossible.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionImpossible.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00140-decimal.DivisionImpossible.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionImpossible.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00141-decimal.DivisionImpossible.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionUndefined",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Second argument to a division or modulo operation was zero.",
+    "page": "api/00142-decimal.DivisionUndefined.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionUndefined.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00143-decimal.DivisionUndefined.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.DivisionUndefined.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00144-decimal.DivisionUndefined.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.FloatOperation",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00145-decimal.FloatOperation.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.FloatOperation.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00146-decimal.FloatOperation.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.FloatOperation.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00147-decimal.FloatOperation.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Inexact",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00148-decimal.Inexact.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Inexact.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00149-decimal.Inexact.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Inexact.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00150-decimal.Inexact.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.InvalidContext",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00151-decimal.InvalidContext.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.InvalidContext.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00152-decimal.InvalidContext.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.InvalidContext.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00153-decimal.InvalidContext.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.InvalidOperation",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00154-decimal.InvalidOperation.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.InvalidOperation.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00155-decimal.InvalidOperation.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.InvalidOperation.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00156-decimal.InvalidOperation.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Overflow",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00157-decimal.Overflow.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Overflow.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00158-decimal.Overflow.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Overflow.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00159-decimal.Overflow.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Rounded",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00160-decimal.Rounded.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Rounded.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00161-decimal.Rounded.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Rounded.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00162-decimal.Rounded.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Subnormal",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00163-decimal.Subnormal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Subnormal.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00164-decimal.Subnormal.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Subnormal.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00165-decimal.Subnormal.with_traceback.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Underflow",
+    "module": "decimal",
+    "kind": "class",
+    "signature": null,
+    "summary": "Base class for arithmetic errors.",
+    "page": "api/00166-decimal.Underflow.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Underflow.add_note",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, note, /)",
+    "summary": "Add a note to the exception",
+    "page": "api/00167-decimal.Underflow.add_note.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "decimal.Underflow.with_traceback",
+    "module": "decimal",
+    "kind": "function",
+    "signature": "(self, tb, /)",
+    "summary": "Set self.__traceback__ to tb and return self.",
+    "page": "api/00168-decimal.Underflow.with_traceback.md",
+    "evidence": "runtime"
+  }
+]

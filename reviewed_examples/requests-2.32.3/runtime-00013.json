@@ -1,0 +1,103 @@
+{
+  "module": "requests.packages",
+  "docstring": null,
+  "exports": null,
+  "members": [
+    {
+      "name": "__builtins__",
+      "kind": "dict",
+      "origin": null,
+      "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+    },
+    {
+      "name": "__cached__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__doc__",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "__file__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__loader__",
+      "kind": "SourceFileLoader",
+      "origin": "_frozen_importlib_external",
+      "docstring": "Concrete implementation of SourceLoader using the file system."
+    },
+    {
+      "name": "__name__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__package__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__spec__",
+      "kind": "ModuleSpec",
+      "origin": "_frozen_importlib",
+      "docstring": "The specification for a module, used for loading.\n\nA module's spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec's\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec's \"origin\" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances."
+    },
+    {
+      "name": "chardet",
+      "kind": "module",
+      "origin": null,
+      "docstring": "Charset-Normalizer\n~~~~~~~~~~~~~~\nThe Real First Universal Charset Detector.\nA library that helps you read text from an unknown charset encoding.\nMotivated by chardet, This package is trying to resolve the issue by taking a new approach.\nAll IANA character set names for which the Python core library provides codecs are supported.\n\nBasic usage:\n   >>> from charset_normalizer import from_bytes\n   >>> results = from_bytes('Bсеки човек има право на образование. Oбразованието!'.encode('utf_8'))\n   >>> best_guess = results.best()\n   >>> str(best_guess)\n   'Bсеки човек има право на образование. Oбразованието!'\n\nOthers methods and usages are available - see the full documentation\nat <https://github.com/Ousret/charset_normalizer>.\n:copyright: (c) Ahmed TAHRI\n:license: MIT, see LICENSE for more details."
+    },
+    {
+      "name": "idna",
+      "kind": "module",
+      "origin": null,
+      "docstring": null
+    },
+    {
+      "name": "imported_mod",
+      "kind": "module",
+      "origin": null,
+      "docstring": "Charset-Normalizer\n~~~~~~~~~~~~~~\nThe Real First Universal Charset Detector.\nA library that helps you read text from an unknown charset encoding.\nMotivated by chardet, This package is trying to resolve the issue by taking a new approach.\nAll IANA character set names for which the Python core library provides codecs are supported.\n\nBasic usage:\n   >>> from charset_normalizer import from_bytes\n   >>> results = from_bytes('Bсеки човек има право на образование. Oбразованието!'.encode('utf_8'))\n   >>> best_guess = results.best()\n   >>> str(best_guess)\n   'Bсеки човек има право на образование. Oбразованието!'\n\nOthers methods and usages are available - see the full documentation\nat <https://github.com/Ousret/charset_normalizer>.\n:copyright: (c) Ahmed TAHRI\n:license: MIT, see LICENSE for more details."
+    },
+    {
+      "name": "mod",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "package",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "sys",
+      "kind": "module",
+      "origin": null,
+      "docstring": "This module provides access to some objects used or maintained by the\ninterpreter and to functions that interact strongly with the interpreter.\n\nDynamic objects:\n\nargv -- command line arguments; argv[0] is the script pathname if known\npath -- module search path; path[0] is the script directory, else ''\nmodules -- dictionary of loaded modules\n\ndisplayhook -- called to show results in an interactive session\nexcepthook -- called to handle any uncaught exception other than SystemExit\n  To customize printing in an interactive session or to install a custom\n  top-level exception handler, assign other functions to replace these.\n\nstdin -- standard input file object; used by input()\nstdout -- standard output file object; used by print()\nstderr -- standard error object; used for error messages\n  By assigning other file objects (or objects that behave like files)\n  to these, it is possible to redirect all of the interpreter's I/O.\n\nlast_exc - the last uncaught exception\n  Only available in an interactive session after a\n  traceback has been printed.\nlast_type -- type of last uncaught exception\nlast_value -- value of last uncaught exception\nlast_traceback -- traceback of last uncaught exception\n  These three are the (deprecated) legacy representation of last_exc.\n\nStatic objects:\n\nbuiltin_module_names -- tuple of module names built into this interpreter\ncopyright -- copyright notice pertaining to this interpreter\nexec_prefix -- prefix used to find the machine-specific Python library\nexecutable -- absolute path of the executable binary of the Python interpreter\nfloat_info -- a named tuple with information about the float implementation.\nfloat_repr_style -- string indicating the style of repr() output for floats\nhash_info -- a named tuple with information about the hash algorithm.\nhexversion -- version information encoded as a single integer\nimplementation -- Python implementation information.\nint_info -- a named tuple with information about the int implementation.\nmaxsize -- the largest supported length of containers.\nmaxunicode -- the value of the largest Unicode code point\nplatform -- platform identifier\nprefix -- prefix used to find the Python library\nthread_info -- a named tuple with information about the thread implementation.\nversion -- the version of this interpreter as a string\nversion_info -- version information as a named tuple\ndllhandle -- [Windows only] integer handle of the Python DLL\nwinver -- [Windows only] version number of the Python DLL\n_enablelegacywindowsfsencoding -- [Windows only]\n__stdin__ -- the original stdin; don't touch!\n__stdout__ -- the original stdout; don't touch!\n__stderr__ -- the original stderr; don't touch!\n__displayhook__ -- the original displayhook; don't touch!\n__excepthook__ -- the original excepthook; don't touch!\n\nFunctions:\n\ndisplayhook() -- print an object to the screen, and save it in builtins._\nexcepthook() -- print an exception and its traceback to sys.stderr\nexception() -- return the current thread's active exception\nexc_info() -- return information about the current thread's active exception\nexit() -- exit the interpreter by raising SystemExit\ngetdlopenflags() -- returns flags to be used for dlopen() calls\ngetprofile() -- get the global profiling function\ngetrefcount() -- return the reference count for an object (plus one :-)\ngetrecursionlimit() -- return the max recursion depth for the interpreter\ngetsizeof() -- return the size of an object in bytes\ngettrace() -- get the global debug tracing function\nsetdlopenflags() -- set the flags to be used for dlopen() calls\nsetprofile() -- set the global profiling function\nsetrecursionlimit() -- set the max recursion depth for the interpreter\nsettrace() -- set the global debug tracing function"
+    },
+    {
+      "name": "target",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "urllib3",
+      "kind": "module",
+      "origin": null,
+      "docstring": "Python HTTP library with thread-safe connection pooling, file post support, user friendly, and more"
+    }
+  ]
+}

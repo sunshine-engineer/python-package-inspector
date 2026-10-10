@@ -1,0 +1,50 @@
+[
+  {
+    "package": "langchain-1.4.3",
+    "coverage": {
+      "public_api_candidates": 494,
+      "with_docstrings": 488,
+      "with_signatures": 409,
+      "with_docstring_examples": 120
+    },
+    "enriched": 32,
+    "cached": 30,
+    "fetched": 0,
+    "errors": [],
+    "unresolved": 477,
+    "setup_copies": 0,
+    "sessions_with_unresolved_names": 0
+  },
+  {
+    "package": "langgraph-1.2.14",
+    "coverage": {
+      "public_api_candidates": 670,
+      "with_docstrings": 433,
+      "with_signatures": 609,
+      "with_docstring_examples": 35
+    },
+    "enriched": 6,
+    "cached": 30,
+    "fetched": 0,
+    "errors": [],
+    "unresolved": 667,
+    "setup_copies": 0,
+    "sessions_with_unresolved_names": 0
+  },
+  {
+    "package": "langsmith-0.14.4",
+    "coverage": {
+      "public_api_candidates": 1465,
+      "with_docstrings": 1345,
+      "with_signatures": 1262,
+      "with_docstring_examples": 84
+    },
+    "enriched": 20,
+    "cached": 30,
+    "fetched": 0,
+    "errors": [],
+    "unresolved": 1454,
+    "setup_copies": 28,
+    "sessions_with_unresolved_names": 8
+  }
+]

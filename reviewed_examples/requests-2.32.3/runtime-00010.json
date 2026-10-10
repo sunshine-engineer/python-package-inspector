@@ -1,0 +1,154 @@
+{
+  "module": "requests.help",
+  "docstring": "Module containing bug report helper(s).",
+  "exports": null,
+  "members": [
+    {
+      "name": "OpenSSL",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "__builtins__",
+      "kind": "dict",
+      "origin": null,
+      "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+    },
+    {
+      "name": "__cached__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__doc__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__file__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__loader__",
+      "kind": "SourceFileLoader",
+      "origin": "_frozen_importlib_external",
+      "docstring": "Concrete implementation of SourceLoader using the file system."
+    },
+    {
+      "name": "__name__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__package__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__spec__",
+      "kind": "ModuleSpec",
+      "origin": "_frozen_importlib",
+      "docstring": "The specification for a module, used for loading.\n\nA module's spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec's\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec's \"origin\" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances."
+    },
+    {
+      "name": "_implementation",
+      "kind": "function",
+      "origin": "requests.help",
+      "docstring": "Return a dict with the Python implementation and version.\n\nProvide both the name and the version of the Python implementation\ncurrently running. For example, on CPython 3.10.3 it will return\n{'name': 'CPython', 'version': '3.10.3'}.\n\nThis function works best on CPython and PyPy: in particular, it probably\ndoesn't work for Jython or IronPython. Future investigation should be done\nto work out the correct shape of the code for those platforms.",
+      "signature": "()",
+      "parameters": [],
+      "returns": null
+    },
+    {
+      "name": "chardet",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "charset_normalizer",
+      "kind": "module",
+      "origin": null,
+      "docstring": "Charset-Normalizer\n~~~~~~~~~~~~~~\nThe Real First Universal Charset Detector.\nA library that helps you read text from an unknown charset encoding.\nMotivated by chardet, This package is trying to resolve the issue by taking a new approach.\nAll IANA character set names for which the Python core library provides codecs are supported.\n\nBasic usage:\n   >>> from charset_normalizer import from_bytes\n   >>> results = from_bytes('Bсеки човек има право на образование. Oбразованието!'.encode('utf_8'))\n   >>> best_guess = results.best()\n   >>> str(best_guess)\n   'Bсеки човек има право на образование. Oбразованието!'\n\nOthers methods and usages are available - see the full documentation\nat <https://github.com/Ousret/charset_normalizer>.\n:copyright: (c) Ahmed TAHRI\n:license: MIT, see LICENSE for more details."
+    },
+    {
+      "name": "cryptography",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "idna",
+      "kind": "module",
+      "origin": null,
+      "docstring": null
+    },
+    {
+      "name": "info",
+      "kind": "function",
+      "origin": "requests.help",
+      "docstring": "Generate information for a bug report.",
+      "signature": "()",
+      "parameters": [],
+      "returns": null
+    },
+    {
+      "name": "json",
+      "kind": "module",
+      "origin": null,
+      "docstring": "JSON (JavaScript Object Notation) <https://json.org> is a subset of\nJavaScript syntax (ECMA-262 3rd edition) used as a lightweight data\ninterchange format.\n\n:mod:`json` exposes an API familiar to users of the standard library\n:mod:`marshal` and :mod:`pickle` modules.  It is derived from a\nversion of the externally maintained simplejson library.\n\nEncoding basic Python object hierarchies::\n\n    >>> import json\n    >>> json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])\n    '[\"foo\", {\"bar\": [\"baz\", null, 1.0, 2]}]'\n    >>> print(json.dumps(\"\\\"foo\\bar\"))\n    \"\\\"foo\\bar\"\n    >>> print(json.dumps('\\u1234'))\n    \"\\u1234\"\n    >>> print(json.dumps('\\\\'))\n    \"\\\\\"\n    >>> print(json.dumps({\"c\": 0, \"b\": 0, \"a\": 0}, sort_keys=True))\n    {\"a\": 0, \"b\": 0, \"c\": 0}\n    >>> from io import StringIO\n    >>> io = StringIO()\n    >>> json.dump(['streaming API'], io)\n    >>> io.getvalue()\n    '[\"streaming API\"]'\n\nCompact encoding::\n\n    >>> import json\n    >>> mydict = {'4': 5, '6': 7}\n    >>> json.dumps([1,2,3,mydict], separators=(',', ':'))\n    '[1,2,3,{\"4\":5,\"6\":7}]'\n\nPretty printing::\n\n    >>> import json\n    >>> print(json.dumps({'4': 5, '6': 7}, sort_keys=True, indent=4))\n    {\n        \"4\": 5,\n        \"6\": 7\n    }\n\nDecoding JSON::\n\n    >>> import json\n    >>> obj = ['foo', {'bar': ['baz', None, 1.0, 2]}]\n    >>> json.loads('[\"foo\", {\"bar\":[\"baz\", null, 1.0, 2]}]') == obj\n    True\n    >>> json.loads('\"\\\\\"foo\\\\bar\"') == '\"foo\\x08ar'\n    True\n    >>> from io import StringIO\n    >>> io = StringIO('[\"streaming API\"]')\n    >>> json.load(io)[0] == 'streaming API'\n    True\n\nSpecializing JSON object decoding::\n\n    >>> import json\n    >>> def as_complex(dct):\n    ...     if '__complex__' in dct:\n    ...         return complex(dct['real'], dct['imag'])\n    ...     return dct\n    ...\n    >>> json.loads('{\"__complex__\": true, \"real\": 1, \"imag\": 2}',\n    ...     object_hook=as_complex)\n    (1+2j)\n    >>> from decimal import Decimal\n    >>> json.loads('1.1', parse_float=Decimal) == Decimal('1.1')\n    True\n\nSpecializing JSON object encoding::\n\n    >>> import json\n    >>> def encode_complex(obj):\n    ...     if isinstance(obj, complex):\n    ...         return [obj.real, obj.imag]\n    ...     raise TypeError(f'Object of type {obj.__class__.__name__} '\n    ...                     f'is not JSON serializable')\n    ...\n    >>> json.dumps(2 + 1j, default=encode_complex)\n    '[2.0, 1.0]'\n    >>> json.JSONEncoder(default=encode_complex).encode(2 + 1j)\n    '[2.0, 1.0]'\n    >>> ''.join(json.JSONEncoder(default=encode_complex).iterencode(2 + 1j))\n    '[2.0, 1.0]'\n\n\nUsing json from the shell to validate and pretty-print::\n\n    $ echo '{\"json\":\"obj\"}' | python -m json\n    {\n        \"json\": \"obj\"\n    }\n    $ echo '{ 1.2:3.4}' | python -m json\n    Expecting property name enclosed in double quotes: line 1 column 3 (char 2)"
+    },
+    {
+      "name": "main",
+      "kind": "function",
+      "origin": "requests.help",
+      "docstring": "Pretty-print the bug information as JSON.",
+      "signature": "()",
+      "parameters": [],
+      "returns": null
+    },
+    {
+      "name": "platform",
+      "kind": "module",
+      "origin": null,
+      "docstring": "This module tries to retrieve as much platform-identifying data as\npossible. It makes this information available via function APIs.\n\nIf called from the command line, it prints the platform\ninformation concatenated as single string to stdout. The output\nformat is usable as part of a filename."
+    },
+    {
+      "name": "pyopenssl",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "requests_version",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "ssl",
+      "kind": "module",
+      "origin": null,
+      "docstring": "This module provides some more Pythonic support for SSL.\n\nObject types:\n\n  SSLSocket -- subtype of socket.socket which does SSL over the socket\n\nExceptions:\n\n  SSLError -- exception raised for I/O errors\n\nFunctions:\n\n  cert_time_to_seconds -- convert time string used for certificate\n                          notBefore and notAfter functions to integer\n                          seconds past the Epoch (the time values\n                          returned from time.time())\n\n  get_server_certificate (addr, ssl_version, ca_certs, timeout) -- Retrieve the\n                          certificate from the server at the specified\n                          address and return it as a PEM-encoded string\n\n\nInteger constants:\n\nSSL_ERROR_ZERO_RETURN\nSSL_ERROR_WANT_READ\nSSL_ERROR_WANT_WRITE\nSSL_ERROR_WANT_X509_LOOKUP\nSSL_ERROR_SYSCALL\nSSL_ERROR_SSL\nSSL_ERROR_WANT_CONNECT\n\nSSL_ERROR_EOF\nSSL_ERROR_INVALID_ERROR_CODE\n\nThe following group define certificate requirements that one side is\nallowing/requiring from the other side:\n\nCERT_NONE - no certificates from the other side are required (or will\n            be looked at if provided)\nCERT_OPTIONAL - certificates are not required, but if provided will be\n                validated, and if validation fails, the connection will\n                also fail\nCERT_REQUIRED - certificates are required, and will be validated, and\n                if validation fails, the connection will also fail\n\nThe following constants identify various SSL protocol variants:\n\nPROTOCOL_SSLv2\nPROTOCOL_SSLv3\nPROTOCOL_SSLv23\nPROTOCOL_TLS\nPROTOCOL_TLS_CLIENT\nPROTOCOL_TLS_SERVER\nPROTOCOL_TLSv1\nPROTOCOL_TLSv1_1\nPROTOCOL_TLSv1_2\n\nThe following constants identify various SSL alert message descriptions as per\nhttp://www.iana.org/assignments/tls-parameters/tls-parameters.xml#tls-parameters-6\n\nALERT_DESCRIPTION_CLOSE_NOTIFY\nALERT_DESCRIPTION_UNEXPECTED_MESSAGE\nALERT_DESCRIPTION_BAD_RECORD_MAC\nALERT_DESCRIPTION_RECORD_OVERFLOW\nALERT_DESCRIPTION_DECOMPRESSION_FAILURE\nALERT_DESCRIPTION_HANDSHAKE_FAILURE\nALERT_DESCRIPTION_BAD_CERTIFICATE\nALERT_DESCRIPTION_UNSUPPORTED_CERTIFICATE\nALERT_DESCRIPTION_CERTIFICATE_REVOKED\nALERT_DESCRIPTION_CERTIFICATE_EXPIRED\nALERT_DESCRIPTION_CERTIFICATE_UNKNOWN\nALERT_DESCRIPTION_ILLEGAL_PARAMETER\nALERT_DESCRIPTION_UNKNOWN_CA\nALERT_DESCRIPTION_ACCESS_DENIED\nALERT_DESCRIPTION_DECODE_ERROR\nALERT_DESCRIPTION_DECRYPT_ERROR\nALERT_DESCRIPTION_PROTOCOL_VERSION\nALERT_DESCRIPTION_INSUFFICIENT_SECURITY\nALERT_DESCRIPTION_INTERNAL_ERROR\nALERT_DESCRIPTION_USER_CANCELLED\nALERT_DESCRIPTION_NO_RENEGOTIATION\nALERT_DESCRIPTION_UNSUPPORTED_EXTENSION\nALERT_DESCRIPTION_CERTIFICATE_UNOBTAINABLE\nALERT_DESCRIPTION_UNRECOGNIZED_NAME\nALERT_DESCRIPTION_BAD_CERTIFICATE_STATUS_RESPONSE\nALERT_DESCRIPTION_BAD_CERTIFICATE_HASH_VALUE\nALERT_DESCRIPTION_UNKNOWN_PSK_IDENTITY"
+    },
+    {
+      "name": "sys",
+      "kind": "module",
+      "origin": null,
+      "docstring": "This module provides access to some objects used or maintained by the\ninterpreter and to functions that interact strongly with the interpreter.\n\nDynamic objects:\n\nargv -- command line arguments; argv[0] is the script pathname if known\npath -- module search path; path[0] is the script directory, else ''\nmodules -- dictionary of loaded modules\n\ndisplayhook -- called to show results in an interactive session\nexcepthook -- called to handle any uncaught exception other than SystemExit\n  To customize printing in an interactive session or to install a custom\n  top-level exception handler, assign other functions to replace these.\n\nstdin -- standard input file object; used by input()\nstdout -- standard output file object; used by print()\nstderr -- standard error object; used for error messages\n  By assigning other file objects (or objects that behave like files)\n  to these, it is possible to redirect all of the interpreter's I/O.\n\nlast_exc - the last uncaught exception\n  Only available in an interactive session after a\n  traceback has been printed.\nlast_type -- type of last uncaught exception\nlast_value -- value of last uncaught exception\nlast_traceback -- traceback of last uncaught exception\n  These three are the (deprecated) legacy representation of last_exc.\n\nStatic objects:\n\nbuiltin_module_names -- tuple of module names built into this interpreter\ncopyright -- copyright notice pertaining to this interpreter\nexec_prefix -- prefix used to find the machine-specific Python library\nexecutable -- absolute path of the executable binary of the Python interpreter\nfloat_info -- a named tuple with information about the float implementation.\nfloat_repr_style -- string indicating the style of repr() output for floats\nhash_info -- a named tuple with information about the hash algorithm.\nhexversion -- version information encoded as a single integer\nimplementation -- Python implementation information.\nint_info -- a named tuple with information about the int implementation.\nmaxsize -- the largest supported length of containers.\nmaxunicode -- the value of the largest Unicode code point\nplatform -- platform identifier\nprefix -- prefix used to find the Python library\nthread_info -- a named tuple with information about the thread implementation.\nversion -- the version of this interpreter as a string\nversion_info -- version information as a named tuple\ndllhandle -- [Windows only] integer handle of the Python DLL\nwinver -- [Windows only] version number of the Python DLL\n_enablelegacywindowsfsencoding -- [Windows only]\n__stdin__ -- the original stdin; don't touch!\n__stdout__ -- the original stdout; don't touch!\n__stderr__ -- the original stderr; don't touch!\n__displayhook__ -- the original displayhook; don't touch!\n__excepthook__ -- the original excepthook; don't touch!\n\nFunctions:\n\ndisplayhook() -- print an object to the screen, and save it in builtins._\nexcepthook() -- print an exception and its traceback to sys.stderr\nexception() -- return the current thread's active exception\nexc_info() -- return information about the current thread's active exception\nexit() -- exit the interpreter by raising SystemExit\ngetdlopenflags() -- returns flags to be used for dlopen() calls\ngetprofile() -- get the global profiling function\ngetrefcount() -- return the reference count for an object (plus one :-)\ngetrecursionlimit() -- return the max recursion depth for the interpreter\ngetsizeof() -- return the size of an object in bytes\ngettrace() -- get the global debug tracing function\nsetdlopenflags() -- set the flags to be used for dlopen() calls\nsetprofile() -- set the global profiling function\nsetrecursionlimit() -- set the max recursion depth for the interpreter\nsettrace() -- set the global debug tracing function"
+    },
+    {
+      "name": "urllib3",
+      "kind": "module",
+      "origin": null,
+      "docstring": "Python HTTP library with thread-safe connection pooling, file post support, user friendly, and more"
+    }
+  ]
+}

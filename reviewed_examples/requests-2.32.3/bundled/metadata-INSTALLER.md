@@ -1,0 +1,6 @@
+# INSTALLER
+
+```text
+pip
+
+```

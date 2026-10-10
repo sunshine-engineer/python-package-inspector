@@ -1,0 +1,108 @@
+{
+  "module": "requests.hooks",
+  "docstring": "requests.hooks\n~~~~~~~~~~~~~~\n\nThis module provides the capabilities for the Requests hooks system.\n\nAvailable hooks:\n\n``response``:\n    The response generated from a Request.",
+  "exports": null,
+  "members": [
+    {
+      "name": "HOOKS",
+      "kind": "list",
+      "origin": null,
+      "docstring": "Built-in mutable sequence.\n\nIf no argument is given, the constructor creates a new empty list.\nThe argument must be an iterable if specified."
+    },
+    {
+      "name": "__builtins__",
+      "kind": "dict",
+      "origin": null,
+      "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+    },
+    {
+      "name": "__cached__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__doc__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__file__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__loader__",
+      "kind": "SourceFileLoader",
+      "origin": "_frozen_importlib_external",
+      "docstring": "Concrete implementation of SourceLoader using the file system."
+    },
+    {
+      "name": "__name__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__package__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__spec__",
+      "kind": "ModuleSpec",
+      "origin": "_frozen_importlib",
+      "docstring": "The specification for a module, used for loading.\n\nA module's spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec's\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec's \"origin\" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances."
+    },
+    {
+      "name": "default_hooks",
+      "kind": "function",
+      "origin": "requests.hooks",
+      "docstring": null,
+      "signature": "()",
+      "parameters": [],
+      "returns": null
+    },
+    {
+      "name": "dispatch_hook",
+      "kind": "function",
+      "origin": "requests.hooks",
+      "docstring": "Dispatches a hook dictionary on a given piece of data.",
+      "signature": "(key, hooks, hook_data, **kwargs)",
+      "parameters": [
+        {
+          "name": "key",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "hooks",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "hook_data",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "kwargs",
+          "kind": "var keyword",
+          "annotation": null,
+          "default": null,
+          "required": false
+        }
+      ],
+      "returns": null
+    }
+  ]
+}

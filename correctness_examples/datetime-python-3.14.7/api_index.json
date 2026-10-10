@@ -1,0 +1,596 @@
+[
+  {
+    "qualified": "datetime.date",
+    "module": "datetime",
+    "kind": "class",
+    "signature": null,
+    "summary": "date(year, month, day) --> date object",
+    "page": "api/00000-datetime.date.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.ctime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return ctime() style string.",
+    "page": "api/00001-datetime.date.ctime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.fromisocalendar",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "int, int, int -> Construct a date from the ISO year, week number and weekday.",
+    "page": "api/00002-datetime.date.fromisocalendar.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.fromisoformat",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, object, /)",
+    "summary": "str -> Construct a date from a string in ISO 8601 format.",
+    "page": "api/00003-datetime.date.fromisoformat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.fromordinal",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "int -> date corresponding to a proleptic Gregorian ordinal.",
+    "page": "api/00004-datetime.date.fromordinal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.fromtimestamp",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, timestamp, /)",
+    "summary": "Create a date from a POSIX timestamp.",
+    "page": "api/00005-datetime.date.fromtimestamp.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.isocalendar",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return a named tuple containing ISO year, week number, and weekday.",
+    "page": "api/00006-datetime.date.isocalendar.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.isoformat",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return string in ISO 8601 format, YYYY-MM-DD.",
+    "page": "api/00007-datetime.date.isoformat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.isoweekday",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the day of the week represented by the date.",
+    "page": "api/00008-datetime.date.isoweekday.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.replace",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "Return date with new specified fields.",
+    "page": "api/00009-datetime.date.replace.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.strftime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "format -> strftime() style string.",
+    "page": "api/00010-datetime.date.strftime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.strptime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "string, format -> new date parsed from a string (like time.strptime()).",
+    "page": "api/00011-datetime.date.strptime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.timetuple",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return time tuple, compatible with time.localtime().",
+    "page": "api/00012-datetime.date.timetuple.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.today",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, /)",
+    "summary": "Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).",
+    "page": "api/00013-datetime.date.today.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.toordinal",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.",
+    "page": "api/00014-datetime.date.toordinal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.date.weekday",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the day of the week represented by the date.",
+    "page": "api/00015-datetime.date.weekday.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime",
+    "module": "datetime",
+    "kind": "class",
+    "signature": null,
+    "summary": "datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])",
+    "page": "api/00016-datetime.datetime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.astimezone",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "tz -> convert to local time in new timezone tz",
+    "page": "api/00017-datetime.datetime.astimezone.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.combine",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "date, time -> datetime with same date and time fields",
+    "page": "api/00018-datetime.datetime.combine.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.ctime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return ctime() style string.",
+    "page": "api/00019-datetime.datetime.ctime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.date",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return date object with same year, month and day.",
+    "page": "api/00020-datetime.datetime.date.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.dst",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.tzinfo.dst(self).",
+    "page": "api/00021-datetime.datetime.dst.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.fromisocalendar",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "int, int, int -> Construct a date from the ISO year, week number and weekday.",
+    "page": "api/00022-datetime.datetime.fromisocalendar.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.fromisoformat",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, object, /)",
+    "summary": "string -> datetime from a string in most ISO 8601 formats",
+    "page": "api/00023-datetime.datetime.fromisoformat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.fromordinal",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "int -> date corresponding to a proleptic Gregorian ordinal.",
+    "page": "api/00024-datetime.datetime.fromordinal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.fromtimestamp",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "timestamp[, tz] -> tz's local time from POSIX timestamp.",
+    "page": "api/00025-datetime.datetime.fromtimestamp.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.isocalendar",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return a named tuple containing ISO year, week number, and weekday.",
+    "page": "api/00026-datetime.datetime.isocalendar.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.isoformat",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "[sep] -> string in ISO 8601 format, YYYY-MM-DDT[HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].",
+    "page": "api/00027-datetime.datetime.isoformat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.isoweekday",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the day of the week represented by the date.",
+    "page": "api/00028-datetime.datetime.isoweekday.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.now",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, /, tz=None)",
+    "summary": "Returns new datetime object representing current time local to tz.",
+    "page": "api/00029-datetime.datetime.now.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.replace",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "Return datetime with new specified fields.",
+    "page": "api/00030-datetime.datetime.replace.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.strftime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "format -> strftime() style string.",
+    "page": "api/00031-datetime.datetime.strftime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.strptime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "string, format -> new datetime parsed from a string (like time.strptime()).",
+    "page": "api/00032-datetime.datetime.strptime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.time",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return time object with same time but with tzinfo=None.",
+    "page": "api/00033-datetime.datetime.time.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.timestamp",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return POSIX timestamp as float.",
+    "page": "api/00034-datetime.datetime.timestamp.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.timetuple",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return time tuple, compatible with time.localtime().",
+    "page": "api/00035-datetime.datetime.timetuple.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.timetz",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return time object with same time and tzinfo.",
+    "page": "api/00036-datetime.datetime.timetz.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.today",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, /)",
+    "summary": "Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).",
+    "page": "api/00037-datetime.datetime.today.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.toordinal",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.",
+    "page": "api/00038-datetime.datetime.toordinal.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.tzname",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.tzinfo.tzname(self).",
+    "page": "api/00039-datetime.datetime.tzname.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.utcfromtimestamp",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "Construct a naive UTC datetime from a POSIX timestamp.",
+    "page": "api/00040-datetime.datetime.utcfromtimestamp.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.utcnow",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, /)",
+    "summary": "Return a new datetime representing UTC day and time.",
+    "page": "api/00041-datetime.datetime.utcnow.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.utcoffset",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.tzinfo.utcoffset(self).",
+    "page": "api/00042-datetime.datetime.utcoffset.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.utctimetuple",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return UTC time tuple, compatible with time.localtime().",
+    "page": "api/00043-datetime.datetime.utctimetuple.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.datetime.weekday",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return the day of the week represented by the date.",
+    "page": "api/00044-datetime.datetime.weekday.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time",
+    "module": "datetime",
+    "kind": "class",
+    "signature": null,
+    "summary": "time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --> a time object",
+    "page": "api/00045-datetime.time.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.dst",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.tzinfo.dst(self).",
+    "page": "api/00046-datetime.time.dst.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.fromisoformat",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(type, object, /)",
+    "summary": "string -> time from a string in ISO 8601 format",
+    "page": "api/00047-datetime.time.fromisoformat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.isoformat",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "Return string in ISO 8601 format, [HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].",
+    "page": "api/00048-datetime.time.isoformat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.replace",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "Return time with new specified fields.",
+    "page": "api/00049-datetime.time.replace.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.strftime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "format -> strftime() style string.",
+    "page": "api/00050-datetime.time.strftime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.strptime",
+    "module": "datetime",
+    "kind": "function",
+    "signature": null,
+    "summary": "string, format -> new time parsed from a string (like time.strptime()).",
+    "page": "api/00051-datetime.time.strptime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.tzname",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.tzinfo.tzname(self).",
+    "page": "api/00052-datetime.time.tzname.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.time.utcoffset",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Return self.tzinfo.utcoffset(self).",
+    "page": "api/00053-datetime.time.utcoffset.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timedelta",
+    "module": "datetime",
+    "kind": "class",
+    "signature": null,
+    "summary": "Difference between two datetime values.",
+    "page": "api/00054-datetime.timedelta.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timedelta.total_seconds",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, /)",
+    "summary": "Total seconds in the duration.",
+    "page": "api/00055-datetime.timedelta.total_seconds.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timezone",
+    "module": "datetime",
+    "kind": "class",
+    "signature": null,
+    "summary": "Fixed offset from UTC implementation of tzinfo.",
+    "page": "api/00056-datetime.timezone.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timezone.dst",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "Return None.",
+    "page": "api/00057-datetime.timezone.dst.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timezone.fromutc",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "datetime in UTC -> datetime in local time.",
+    "page": "api/00058-datetime.timezone.fromutc.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timezone.tzname",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "If name is specified when timezone is created, returns the name.  Otherwise returns offset as 'UTC(+|-)HH:MM'.",
+    "page": "api/00059-datetime.timezone.tzname.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.timezone.utcoffset",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "Return fixed offset.",
+    "page": "api/00060-datetime.timezone.utcoffset.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.tzinfo",
+    "module": "datetime",
+    "kind": "class",
+    "signature": null,
+    "summary": "Abstract base class for time zone info objects.",
+    "page": "api/00061-datetime.tzinfo.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.tzinfo.dst",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "datetime -> DST offset as timedelta positive east of UTC.",
+    "page": "api/00062-datetime.tzinfo.dst.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.tzinfo.fromutc",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "datetime in UTC -> datetime in local time.",
+    "page": "api/00063-datetime.tzinfo.fromutc.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.tzinfo.tzname",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "datetime -> string name of time zone.",
+    "page": "api/00064-datetime.tzinfo.tzname.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "datetime.tzinfo.utcoffset",
+    "module": "datetime",
+    "kind": "function",
+    "signature": "(self, object, /)",
+    "summary": "datetime -> timedelta showing offset from UTC, negative values indicating West of UTC",
+    "page": "api/00065-datetime.tzinfo.utcoffset.md",
+    "evidence": "runtime"
+  }
+]

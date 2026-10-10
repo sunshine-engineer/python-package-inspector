@@ -1,0 +1,88 @@
+# requests.sessions.PreparedRequest.prepare_cookies
+
+[API index](../API_INDEX.md) · [Quick start](../QUICKSTART.md)
+
+Prepares the given HTTP cookie data.
+
+Kind: **function**. Evidence: **source + runtime**. Discovery: **public member name**.
+
+## Signature
+
+```text
+(self, cookies)
+```
+
+## Inputs
+
+| Parameter | Passing style | Required | Type | Default | Description |
+| --- | --- | --- | --- | --- | --- |
+| cookies | positional or keyword | Yes | Not provided | — | Not described in the docstring |
+
+## Returns and exceptions
+
+Return annotation: `Not provided`.
+
+Return behavior is not separately documented; consult the original docstring below.
+
+No exception section was extracted. This does not mean the call cannot raise.
+
+## Practice
+
+No doctest-style usage example was supplied. Start with the inspection block below. Choose real inputs from the input table and original documentation; the generator does not invent valid values or expected results.
+
+### Call template — edit before running
+
+Generated from the signature, not a tested example. Replace every `...` placeholder with a valid value. Optional arguments use their declared defaults; add them from the input table when needed. Decorators or conditional definitions can affect runtime behavior.
+
+```python
+import importlib
+m = importlib.import_module('requests.sessions')
+cookies = ...  # TODO: supply a valid value from your application
+instance = ...  # TODO: construct m.PreparedRequest using its constructor page
+result = instance.prepare_cookies(cookies=cookies)
+print(result)
+
+```
+
+This is a class member. Construct `requests.sessions.PreparedRequest` using its documented constructor before calling an instance method. `self`/`cls` are receiver parameters. Static/class methods and properties are identified by their decorators when available.
+
+## Related APIs mentioned in the docstring
+
+- [requests.sessions.PreparedRequest](00609-requests.sessions.PreparedRequest.md) — The fully mutable :class:`PreparedRequest <PreparedRequest>` object,
+
+### Inspect this exact API
+
+```python
+import importlib
+import inspect
+
+m = importlib.import_module('requests.sessions')
+obj = m
+obj = inspect.getattr_static(obj, 'PreparedRequest')
+obj = inspect.getattr_static(obj, 'prepare_cookies')
+if isinstance(obj, (staticmethod, classmethod)):
+    obj = obj.__func__
+print(inspect.getdoc(obj) or 'No docstring supplied')
+try:
+    print(inspect.signature(obj))
+except (TypeError, ValueError):
+    print('Signature unavailable')
+help(obj)
+```
+
+## Original docstring
+
+```text
+Prepares the given HTTP cookie data.
+
+        This function eventually generates a ``Cookie`` header from the
+        given cookies using cookielib. Due to cookielib's design, the header
+        will not be regenerated if it already exists, meaning this function
+        can only be called once for the life of the
+        :class:`PreparedRequest <PreparedRequest>` object. Any subsequent calls
+        to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
+        header is removed beforehand.
+        
+```
+
+[Full module inspection](../modules/00039-requests.sessions.md)

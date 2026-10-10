@@ -1,0 +1,299 @@
+[
+  {
+    "qualified": "os.path.abspath",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Return the absolute version of a path.",
+    "page": "api/00000-os.path.abspath.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.basename",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(p)",
+    "summary": "Returns the final component of a pathname",
+    "page": "api/00001-os.path.basename.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.commonpath",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(paths)",
+    "summary": "Given an iterable of path names, returns the longest common sub-path.",
+    "page": "api/00002-os.path.commonpath.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.commonprefix",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(m)",
+    "summary": "Given a list of pathnames, returns the longest common leading component",
+    "page": "api/00003-os.path.commonprefix.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.dirname",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(p)",
+    "summary": "Returns the directory component of a pathname",
+    "page": "api/00004-os.path.dirname.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.exists",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Test whether a path exists.  Returns False for broken symbolic links.",
+    "page": "api/00005-os.path.exists.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.expanduser",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Expand ~ and ~user constructs.",
+    "page": "api/00006-os.path.expanduser.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.expandvars",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Expand shell variables of the forms $var, ${var} and %var%.",
+    "page": "api/00007-os.path.expandvars.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.getatime",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(filename)",
+    "summary": "Return the last access time of a file, reported by os.stat().",
+    "page": "api/00008-os.path.getatime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.getctime",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(filename)",
+    "summary": "Return the metadata change time of a file, reported by os.stat().",
+    "page": "api/00009-os.path.getctime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.getmtime",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(filename)",
+    "summary": "Return the last modification time of a file, reported by os.stat().",
+    "page": "api/00010-os.path.getmtime.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.getsize",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(filename)",
+    "summary": "Return the size of a file, reported by os.stat().",
+    "page": "api/00011-os.path.getsize.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.isabs",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(s)",
+    "summary": "Test whether a path is absolute",
+    "page": "api/00012-os.path.isabs.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.isdevdrive",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Determines whether the specified path is on a Windows Dev Drive.",
+    "page": "api/00013-os.path.isdevdrive.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.isdir",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(s)",
+    "summary": "Return true if the pathname refers to an existing directory.",
+    "page": "api/00014-os.path.isdir.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.isfile",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Test whether a path is a regular file",
+    "page": "api/00015-os.path.isfile.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.isjunction",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Test whether a path is a junction",
+    "page": "api/00016-os.path.isjunction.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.islink",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Test whether a path is a symbolic link",
+    "page": "api/00017-os.path.islink.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.ismount",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Test whether a path is a mount point (a drive root, the root of a",
+    "page": "api/00018-os.path.ismount.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.isreserved",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Return true if the pathname is reserved by the system.",
+    "page": "api/00019-os.path.isreserved.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.join",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path, *paths)",
+    "summary": "No description supplied by the package.",
+    "page": "api/00020-os.path.join.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.lexists",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Test whether a path exists.  Returns True for broken symbolic links.",
+    "page": "api/00021-os.path.lexists.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.normcase",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(s)",
+    "summary": "Normalize case of pathname.",
+    "page": "api/00022-os.path.normcase.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.normpath",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path)",
+    "summary": "Normalize path, eliminating double slashes, etc.",
+    "page": "api/00023-os.path.normpath.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.realpath",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path, *, strict=False)",
+    "summary": "No description supplied by the package.",
+    "page": "api/00024-os.path.realpath.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.relpath",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(path, start=None)",
+    "summary": "Return a relative version of a path",
+    "page": "api/00025-os.path.relpath.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.samefile",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(f1, f2)",
+    "summary": "Test whether two pathnames reference the same actual file or directory",
+    "page": "api/00026-os.path.samefile.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.sameopenfile",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(fp1, fp2)",
+    "summary": "Test whether two open file objects reference the same file",
+    "page": "api/00027-os.path.sameopenfile.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.samestat",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(s1, s2)",
+    "summary": "Test whether two stat buffers reference the same file",
+    "page": "api/00028-os.path.samestat.md",
+    "evidence": "runtime"
+  },
+  {
+    "qualified": "os.path.split",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(p)",
+    "summary": "Split a pathname.",
+    "page": "api/00029-os.path.split.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.splitdrive",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(p)",
+    "summary": "Split a pathname into drive/UNC sharepoint and relative path specifiers.",
+    "page": "api/00030-os.path.splitdrive.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.splitext",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(p)",
+    "summary": "Split the extension from a pathname.",
+    "page": "api/00031-os.path.splitext.md",
+    "evidence": "source + runtime"
+  },
+  {
+    "qualified": "os.path.splitroot",
+    "module": "os.path",
+    "kind": "function",
+    "signature": "(p)",
+    "summary": "Split a pathname into drive, root and tail.",
+    "page": "api/00032-os.path.splitroot.md",
+    "evidence": "source + runtime"
+  }
+]

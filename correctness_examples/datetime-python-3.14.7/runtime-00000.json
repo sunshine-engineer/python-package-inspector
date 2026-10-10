@@ -1,0 +1,5414 @@
+{
+  "module": "datetime",
+  "docstring": "Specific date/time and related types.\n\nSee https://data.iana.org/time-zones/tz-link.html for\ntime zone and DST data sources.",
+  "exports": [
+    "date",
+    "datetime",
+    "time",
+    "timedelta",
+    "timezone",
+    "tzinfo",
+    "MINYEAR",
+    "MAXYEAR",
+    "UTC"
+  ],
+  "members": [
+    {
+      "name": "MAXYEAR",
+      "kind": "int",
+      "origin": null,
+      "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+    },
+    {
+      "name": "MINYEAR",
+      "kind": "int",
+      "origin": null,
+      "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+    },
+    {
+      "name": "UTC",
+      "kind": "timezone",
+      "origin": null,
+      "docstring": "Fixed offset from UTC implementation of tzinfo."
+    },
+    {
+      "name": "__all__",
+      "kind": "tuple",
+      "origin": null,
+      "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+    },
+    {
+      "name": "__builtins__",
+      "kind": "dict",
+      "origin": null,
+      "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+    },
+    {
+      "name": "__cached__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__doc__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__file__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__loader__",
+      "kind": "SourceFileLoader",
+      "origin": "_frozen_importlib_external",
+      "docstring": "Concrete implementation of SourceLoader using the file system."
+    },
+    {
+      "name": "__name__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__package__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__spec__",
+      "kind": "ModuleSpec",
+      "origin": "_frozen_importlib",
+      "docstring": "The specification for a module, used for loading.\n\nA module's spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec's\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec's \"origin\" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances."
+    },
+    {
+      "name": "date",
+      "kind": "class",
+      "origin": "datetime",
+      "docstring": "date(year, month, day) --> date object",
+      "signature_error": "no signature found for builtin type <class 'datetime.date'>",
+      "members": [
+        {
+          "name": "__add__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self+value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Formats self with strftime.",
+          "inspection_error": "no signature found for builtin <method '__format__' of 'datetime.date' objects>"
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__radd__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value+self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "__reduce__() -> (cls, state)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__replace__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The same as replace().",
+          "signature": "(self, /, **changes)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "changes",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rsub__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value-self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sub__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self-value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "ctime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return ctime() style string.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "day",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "fromisocalendar",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int, int, int -> Construct a date from the ISO year, week number and weekday.\n\nThis is the inverse of the date.isocalendar() function",
+          "inspection_error": "no signature found for builtin <method 'fromisocalendar' of 'datetime.date' objects>"
+        },
+        {
+          "name": "fromisoformat",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str -> Construct a date from a string in ISO 8601 format.",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fromordinal",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int -> date corresponding to a proleptic Gregorian ordinal.",
+          "inspection_error": "no signature found for builtin <method 'fromordinal' of 'datetime.date' objects>"
+        },
+        {
+          "name": "fromtimestamp",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create a date from a POSIX timestamp.\n\nThe timestamp is a number, e.g. created via time.time(), that is\ninterpreted as local time.",
+          "signature": "(type, timestamp, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "timestamp",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "isocalendar",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return a named tuple containing ISO year, week number, and weekday.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "isoformat",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return string in ISO 8601 format, YYYY-MM-DD.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "isoweekday",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return the day of the week represented by the date.\nMonday == 1 ... Sunday == 7",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "max",
+          "kind": "date",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "date(year, month, day) --> date object"
+        },
+        {
+          "name": "min",
+          "kind": "date",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "date(year, month, day) --> date object"
+        },
+        {
+          "name": "month",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "replace",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return date with new specified fields.",
+          "inspection_error": "<method 'replace' of 'datetime.date' objects> builtin has invalid signature"
+        },
+        {
+          "name": "resolution",
+          "kind": "timedelta",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative."
+        },
+        {
+          "name": "strftime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "format -> strftime() style string.",
+          "inspection_error": "no signature found for builtin <method 'strftime' of 'datetime.date' objects>"
+        },
+        {
+          "name": "strptime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "string, format -> new date parsed from a string (like time.strptime()).",
+          "inspection_error": "no signature found for builtin <method 'strptime' of 'datetime.date' objects>"
+        },
+        {
+          "name": "timetuple",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return time tuple, compatible with time.localtime().",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "today",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "toordinal",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "weekday",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return the day of the week represented by the date.\nMonday == 0 ... Sunday == 6",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "year",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "datetime",
+      "kind": "class",
+      "origin": "datetime",
+      "docstring": "datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])\n\nThe year, month and day arguments are required. tzinfo may be None, or an\ninstance of a tzinfo subclass. The remaining arguments may be ints.",
+      "signature_error": "no signature found for builtin type <class 'datetime.datetime'>",
+      "members": [
+        {
+          "name": "__add__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self+value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Formats self with strftime.",
+          "inspection_error": "no signature found for builtin <method '__format__' of 'datetime.date' objects>"
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__radd__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value+self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "__reduce__() -> (cls, state)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "__reduce_ex__(proto) -> (cls, state)",
+          "inspection_error": "no signature found for builtin <method '__reduce_ex__' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "__replace__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The same as replace().",
+          "signature": "(self, /, **changes)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "changes",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rsub__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value-self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sub__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self-value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "astimezone",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "tz -> convert to local time in new timezone tz",
+          "inspection_error": "no signature found for builtin <method 'astimezone' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "combine",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "date, time -> datetime with same date and time fields",
+          "inspection_error": "no signature found for builtin <method 'combine' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "ctime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return ctime() style string.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "date",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return date object with same year, month and day.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "day",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": null
+        },
+        {
+          "name": "dst",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self.tzinfo.dst(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fold",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "fromisocalendar",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "int, int, int -> Construct a date from the ISO year, week number and weekday.\n\nThis is the inverse of the date.isocalendar() function",
+          "inspection_error": "no signature found for builtin <method 'fromisocalendar' of 'datetime.date' objects>"
+        },
+        {
+          "name": "fromisoformat",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "string -> datetime from a string in most ISO 8601 formats",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fromordinal",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "int -> date corresponding to a proleptic Gregorian ordinal.",
+          "inspection_error": "no signature found for builtin <method 'fromordinal' of 'datetime.date' objects>"
+        },
+        {
+          "name": "fromtimestamp",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "timestamp[, tz] -> tz's local time from POSIX timestamp.",
+          "inspection_error": "no signature found for builtin <method 'fromtimestamp' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "hour",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "isocalendar",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return a named tuple containing ISO year, week number, and weekday.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "isoformat",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "[sep] -> string in ISO 8601 format, YYYY-MM-DDT[HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].\nsep is used to separate the year from the time, and defaults to 'T'.\nThe optional argument timespec specifies the number of additional terms\nof the time to include. Valid options are 'auto', 'hours', 'minutes',\n'seconds', 'milliseconds' and 'microseconds'.",
+          "inspection_error": "no signature found for builtin <method 'isoformat' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "isoweekday",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return the day of the week represented by the date.\nMonday == 1 ... Sunday == 7",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "max",
+          "kind": "datetime",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])\n\nThe year, month and day arguments are required. tzinfo may be None, or an\ninstance of a tzinfo subclass. The remaining arguments may be ints."
+        },
+        {
+          "name": "microsecond",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "min",
+          "kind": "datetime",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])\n\nThe year, month and day arguments are required. tzinfo may be None, or an\ninstance of a tzinfo subclass. The remaining arguments may be ints."
+        },
+        {
+          "name": "minute",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "month",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": null
+        },
+        {
+          "name": "now",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Returns new datetime object representing current time local to tz.\n\n  tz\n    Timezone object.\n\nIf no tz is specified, uses local timezone.",
+          "signature": "(type, /, tz=None)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "tz",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "replace",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return datetime with new specified fields.",
+          "inspection_error": "<method 'replace' of 'datetime.datetime' objects> builtin has invalid signature"
+        },
+        {
+          "name": "resolution",
+          "kind": "timedelta",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative."
+        },
+        {
+          "name": "second",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "strftime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "format -> strftime() style string.",
+          "inspection_error": "no signature found for builtin <method 'strftime' of 'datetime.date' objects>"
+        },
+        {
+          "name": "strptime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "string, format -> new datetime parsed from a string (like time.strptime()).",
+          "inspection_error": "no signature found for builtin <method 'strptime' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "time",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return time object with same time but with tzinfo=None.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "timestamp",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return POSIX timestamp as float.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "timetuple",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return time tuple, compatible with time.localtime().",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "timetz",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return time object with same time and tzinfo.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "today",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "toordinal",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "tzinfo",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self.tzinfo.tzname(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "utcfromtimestamp",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Construct a naive UTC datetime from a POSIX timestamp.",
+          "inspection_error": "no signature found for builtin <method 'utcfromtimestamp' of 'datetime.datetime' objects>"
+        },
+        {
+          "name": "utcnow",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return a new datetime representing UTC day and time.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "utcoffset",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self.tzinfo.utcoffset(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "utctimetuple",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return UTC time tuple, compatible with time.localtime().",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "weekday",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return the day of the week represented by the date.\nMonday == 0 ... Sunday == 6",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "year",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": null
+        }
+      ]
+    },
+    {
+      "name": "datetime_CAPI",
+      "kind": "PyCapsule",
+      "origin": null,
+      "docstring": "Capsule objects let you wrap a C \"void *\" pointer in a Python\nobject.  They're a way of passing data through the Python interpreter\nwithout creating your own custom type.\n\nCapsules are used for communication between extension modules.\nThey provide a way for an extension module to export a C interface\nto other extension modules, so that extension modules can use the\nPython import mechanism to link to one another."
+    },
+    {
+      "name": "time",
+      "kind": "class",
+      "origin": "datetime",
+      "docstring": "time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --> a time object\n\nAll arguments are optional. tzinfo may be None, or an instance of\na tzinfo subclass. The remaining arguments may be ints.",
+      "signature_error": "no signature found for builtin type <class 'datetime.time'>",
+      "members": [
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Formats self with strftime.",
+          "inspection_error": "no signature found for builtin <method '__format__' of 'datetime.time' objects>"
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "__reduce__() -> (cls, state)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "__reduce_ex__(proto) -> (cls, state)",
+          "inspection_error": "no signature found for builtin <method '__reduce_ex__' of 'datetime.time' objects>"
+        },
+        {
+          "name": "__replace__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The same as replace().",
+          "signature": "(self, /, **changes)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "changes",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "dst",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self.tzinfo.dst(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fold",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "fromisoformat",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "string -> time from a string in ISO 8601 format",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "hour",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "isoformat",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return string in ISO 8601 format, [HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].\n\nThe optional argument timespec specifies the number of additional terms\nof the time to include. Valid options are 'auto', 'hours', 'minutes',\n'seconds', 'milliseconds' and 'microseconds'.",
+          "inspection_error": "no signature found for builtin <method 'isoformat' of 'datetime.time' objects>"
+        },
+        {
+          "name": "max",
+          "kind": "time",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --> a time object\n\nAll arguments are optional. tzinfo may be None, or an instance of\na tzinfo subclass. The remaining arguments may be ints."
+        },
+        {
+          "name": "microsecond",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "min",
+          "kind": "time",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --> a time object\n\nAll arguments are optional. tzinfo may be None, or an instance of\na tzinfo subclass. The remaining arguments may be ints."
+        },
+        {
+          "name": "minute",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "replace",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return time with new specified fields.",
+          "inspection_error": "<method 'replace' of 'datetime.time' objects> builtin has invalid signature"
+        },
+        {
+          "name": "resolution",
+          "kind": "timedelta",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative."
+        },
+        {
+          "name": "second",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "strftime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "format -> strftime() style string.",
+          "inspection_error": "no signature found for builtin <method 'strftime' of 'datetime.time' objects>"
+        },
+        {
+          "name": "strptime",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "string, format -> new time parsed from a string (like time.strptime()).",
+          "inspection_error": "no signature found for builtin <method 'strptime' of 'datetime.time' objects>"
+        },
+        {
+          "name": "tzinfo",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "tzname",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self.tzinfo.tzname(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "utcoffset",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self.tzinfo.utcoffset(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "timedelta",
+      "kind": "class",
+      "origin": "datetime",
+      "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative.",
+      "signature_error": "no signature found for builtin type <class 'datetime.timedelta'>",
+      "members": [
+        {
+          "name": "__abs__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "abs(self)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__add__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self+value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__bool__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "True if self else False",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__divmod__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return divmod(self, value).",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__floordiv__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self//value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__mod__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self%value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__mul__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self*value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__neg__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "-self",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__pos__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "+self",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__radd__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value+self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rdivmod__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return divmod(value, self).",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "__reduce__() -> (cls, state)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rfloordiv__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value//self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rmod__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value%self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rmul__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value*self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rsub__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value-self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__rtruediv__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value/self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sub__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self-value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__truediv__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self/value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "days",
+          "kind": "member_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Number of days."
+        },
+        {
+          "name": "max",
+          "kind": "timedelta",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative."
+        },
+        {
+          "name": "microseconds",
+          "kind": "member_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Number of microseconds (>= 0 and less than 1 second)."
+        },
+        {
+          "name": "min",
+          "kind": "timedelta",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative."
+        },
+        {
+          "name": "resolution",
+          "kind": "timedelta",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Difference between two datetime values.\n\ntimedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)\n\nAll arguments are optional and default to 0.\nArguments may be integers or floats, and may be positive or negative."
+        },
+        {
+          "name": "seconds",
+          "kind": "member_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Number of seconds (>= 0 and less than 1 day)."
+        },
+        {
+          "name": "total_seconds",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Total seconds in the duration.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "timezone",
+      "kind": "class",
+      "origin": "datetime",
+      "docstring": "Fixed offset from UTC implementation of tzinfo.",
+      "signature_error": "no signature found for builtin type <class 'datetime.timezone'>",
+      "members": [
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getinitargs__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "pickle support",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "-> (cls, state)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "dst",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return None.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fromutc",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime in UTC -> datetime in local time.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "max",
+          "kind": "timezone",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Fixed offset from UTC implementation of tzinfo."
+        },
+        {
+          "name": "min",
+          "kind": "timezone",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Fixed offset from UTC implementation of tzinfo."
+        },
+        {
+          "name": "tzname",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "If name is specified when timezone is created, returns the name.  Otherwise returns offset as 'UTC(+|-)HH:MM'.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "utc",
+          "kind": "timezone",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Fixed offset from UTC implementation of tzinfo."
+        },
+        {
+          "name": "utcoffset",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return fixed offset.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "tzinfo",
+      "kind": "class",
+      "origin": "datetime",
+      "docstring": "Abstract base class for time zone info objects.",
+      "signature_error": "no signature found for builtin type <class 'datetime.tzinfo'>",
+      "members": [
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "-> (cls, state)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "dst",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime -> DST offset as timedelta positive east of UTC.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fromutc",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime in UTC -> datetime in local time.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "tzname",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime -> string name of time zone.",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "utcoffset",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "datetime -> timedelta showing offset from UTC, negative values indicating West of UTC",
+          "signature": "(self, object, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    }
+  ]
+}

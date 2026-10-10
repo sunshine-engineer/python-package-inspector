@@ -1,0 +1,4956 @@
+{
+  "module": "requests.structures",
+  "docstring": "requests.structures\n~~~~~~~~~~~~~~~~~~~\n\nData structures that power Requests.",
+  "exports": null,
+  "members": [
+    {
+      "name": "CaseInsensitiveDict",
+      "kind": "class",
+      "origin": "requests.structures",
+      "docstring": "A case-insensitive ``dict``-like object.\n\nImplements all methods and operations of\n``MutableMapping`` as well as dict's ``copy``. Also\nprovides ``lower_items``.\n\nAll keys are expected to be strings. The structure remembers the\ncase of the last key to be set, and ``iter(instance)``,\n``keys()``, ``items()``, ``iterkeys()``, and ``iteritems()``\nwill contain case-sensitive keys. However, querying and contains\ntesting is case insensitive::\n\n    cid = CaseInsensitiveDict()\n    cid['Accept'] = 'application/json'\n    cid['aCCEPT'] == 'application/json'  # True\n    list(cid) == ['Accept']  # True\n\nFor example, ``headers['content-encoding']`` will return the\nvalue of a ``'Content-Encoding'`` response header, regardless\nof how the header name was originally stored.\n\nIf the constructor, ``.update``, or equality comparison\noperations are given keys that have equal ``.lower()``s, the\nbehavior is undefined.",
+      "signature": "(data=None, **kwargs)",
+      "parameters": [
+        {
+          "name": "data",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": "None",
+          "required": false
+        },
+        {
+          "name": "kwargs",
+          "kind": "var keyword",
+          "annotation": null,
+          "default": null,
+          "required": false
+        }
+      ],
+      "returns": null,
+      "members": [
+        {
+          "name": "_MutableMapping__marker",
+          "kind": "object",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The base class of the class hierarchy.\n\nWhen called, it accepts no arguments and returns a new featureless\ninstance that has no instance attributes and cannot be given any."
+        },
+        {
+          "name": "__abstractmethods__",
+          "kind": "frozenset",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Build an immutable unordered collection of unique elements."
+        },
+        {
+          "name": "__annotate_func__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__annotations_cache__",
+          "kind": "dict",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__class_getitem__",
+          "kind": "function",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": true,
+          "docstring": "Represent a PEP 585 generic type\n\nFor example, for t = list[int], t.__origin__ is list and t.__args__\nis (int,).",
+          "signature": "(origin, args, /)",
+          "parameters": [
+            {
+              "name": "origin",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__contains__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dict__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "dictionary for instance variables"
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, other)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "other",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__firstlineno__",
+          "kind": "int",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, data=None, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "data",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__iter__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__len__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__module__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reversed__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key, value)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__slots__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__static_attributes__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(cls, C)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "C",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__weakref__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "list of weak references to the object"
+        },
+        {
+          "name": "_abc_impl",
+          "kind": "_abc_data",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Internal state held by ABC machinery."
+        },
+        {
+          "name": "clear",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.clear() -> None.  Remove all items from D.",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "copy",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "get",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.",
+          "signature": "(self, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "items",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.items() -> a set-like object providing a view on D's items",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "keys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.keys() -> a set-like object providing a view on D's keys",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "lower_items",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Like iteritems(), but with all lowercase keys.",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "pop",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.pop(k[,d]) -> v, remove specified key and return the corresponding\nvalue.  If key is not found, d is returned if given, otherwise\nKeyError is raised.",
+          "signature": "(self, key, default=<object object at 0x0000024594ED01D0>)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "<object object at 0x0000024594ED01D0>",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "popitem",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.popitem() -> (k, v), remove and return some (key, value) pair\nas a 2-tuple; but raise KeyError if D is empty.",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "setdefault",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D",
+          "signature": "(self, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "update",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F.\nIf E present and has a .keys() method, does:\n    for k in E.keys(): D[k] = E[k]\nIf E present and lacks .keys() method, does:\n    for (k, v) in E: D[k] = v\nIn either case, this is followed by:\n    for k, v in F.items(): D[k] = v",
+          "signature": "(self, other=(), /, **kwds)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "other",
+              "kind": "positional only",
+              "annotation": null,
+              "default": "()",
+              "required": false
+            },
+            {
+              "name": "kwds",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "values",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.values() -> an object providing a view on D's values",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "LookupDict",
+      "kind": "class",
+      "origin": "requests.structures",
+      "docstring": "Dictionary lookup object.",
+      "signature": "(name=None)",
+      "parameters": [
+        {
+          "name": "name",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": null,
+      "members": [
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__class_getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "dicts are generic over two types, signifying (respectively) the types of their keys and values",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__contains__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "True if the dictionary has the specified key, else False.",
+          "signature": "(self, key, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Delete self[key].",
+          "signature": "(self, key, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dict__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "dictionary for instance variables"
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__firstlineno__",
+          "kind": "int",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self[key].",
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, name=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ior__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self|=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__iter__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement iter(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__len__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return len(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__module__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__or__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self|value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reversed__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return a reverse iterator over the dict keys.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ror__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return value|self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Set self[key] to value.",
+          "signature": "(self, key, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return the size of the dict in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__static_attributes__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__weakref__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "list of weak references to the object"
+        },
+        {
+          "name": "clear",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Remove all items from the dict.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "copy",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return a shallow copy of the dict.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fromkeys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create a new dictionary with keys from iterable and values set to value.",
+          "signature": "(type, iterable, value=None, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "iterable",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "get",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return the value for key if key is in the dictionary, else default.",
+          "signature": "(self, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "items",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return a set-like object providing a view on the dict's items.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "keys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return a set-like object providing a view on the dict's keys.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "pop",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.pop(k[,d]) -> v, remove specified key and return the corresponding value.\n\nIf the key is not found, return the default if given; otherwise,\nraise a KeyError.",
+          "inspection_error": "<method 'pop' of 'dict' objects> builtin has invalid signature"
+        },
+        {
+          "name": "popitem",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Remove and return a (key, value) pair as a 2-tuple.\n\nPairs are returned in LIFO (last-in, first-out) order.\nRaises KeyError if the dict is empty.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "setdefault",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Insert key with a value of default if key is not in the dictionary.\n\nReturn the value for key if key is in the dictionary, else default.",
+          "signature": "(self, key, default=None, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "update",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F.\nIf E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]\nIf E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v\nIn either case, this is followed by: for k in F:  D[k] = F[k]",
+          "inspection_error": "no signature found for builtin <method 'update' of 'dict' objects>"
+        },
+        {
+          "name": "values",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return an object providing a view on the dict's values.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "Mapping",
+      "kind": "class",
+      "origin": "collections.abc",
+      "docstring": "A Mapping is a generic container for associating key/value\npairs.\n\nThis class provides concrete generic implementations of all\nmethods except for __getitem__, __iter__, and __len__.",
+      "signature": "()",
+      "parameters": [],
+      "returns": null,
+      "members": [
+        {
+          "name": "__abstractmethods__",
+          "kind": "frozenset",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Build an immutable unordered collection of unique elements."
+        },
+        {
+          "name": "__annotate_func__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__annotations_cache__",
+          "kind": "dict",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__class_getitem__",
+          "kind": "function",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": true,
+          "docstring": "Represent a PEP 585 generic type\n\nFor example, for t = list[int], t.__origin__ is list and t.__args__\nis (int,).",
+          "signature": "(origin, args, /)",
+          "parameters": [
+            {
+              "name": "origin",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__contains__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, other)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "other",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__firstlineno__",
+          "kind": "int",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__iter__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__len__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__module__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reversed__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__slots__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__static_attributes__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(cls, C)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "C",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_abc_impl",
+          "kind": "_abc_data",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Internal state held by ABC machinery."
+        },
+        {
+          "name": "get",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.",
+          "signature": "(self, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "items",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.items() -> a set-like object providing a view on D's items",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "keys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.keys() -> a set-like object providing a view on D's keys",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "values",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.values() -> an object providing a view on D's values",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "MutableMapping",
+      "kind": "class",
+      "origin": "collections.abc",
+      "docstring": "A MutableMapping is a generic container for associating\nkey/value pairs.\n\nThis class provides concrete generic implementations of all\nmethods except for __getitem__, __setitem__, __delitem__,\n__iter__, and __len__.",
+      "signature": "()",
+      "parameters": [],
+      "returns": null,
+      "members": [
+        {
+          "name": "_MutableMapping__marker",
+          "kind": "object",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The base class of the class hierarchy.\n\nWhen called, it accepts no arguments and returns a new featureless\ninstance that has no instance attributes and cannot be given any."
+        },
+        {
+          "name": "__abstractmethods__",
+          "kind": "frozenset",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Build an immutable unordered collection of unique elements."
+        },
+        {
+          "name": "__annotate_func__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__annotations_cache__",
+          "kind": "dict",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__class_getitem__",
+          "kind": "function",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": true,
+          "docstring": "Represent a PEP 585 generic type\n\nFor example, for t = list[int], t.__origin__ is list and t.__args__\nis (int,).",
+          "signature": "(origin, args, /)",
+          "parameters": [
+            {
+              "name": "origin",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__contains__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self==value.",
+          "signature": "(self, other)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "other",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__firstlineno__",
+          "kind": "int",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self, key)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__iter__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__len__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__module__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reversed__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(self, key, value)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__slots__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__static_attributes__",
+          "kind": "tuple",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": true,
+          "docstring": null,
+          "signature": "(cls, C)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "C",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_abc_impl",
+          "kind": "_abc_data",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Internal state held by ABC machinery."
+        },
+        {
+          "name": "clear",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.clear() -> None.  Remove all items from D.",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "get",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.",
+          "signature": "(self, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "items",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.items() -> a set-like object providing a view on D's items",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "keys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.keys() -> a set-like object providing a view on D's keys",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "pop",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.pop(k[,d]) -> v, remove specified key and return the corresponding\nvalue.  If key is not found, d is returned if given, otherwise\nKeyError is raised.",
+          "signature": "(self, key, default=<object object at 0x0000024594ED01D0>)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "<object object at 0x0000024594ED01D0>",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "popitem",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.popitem() -> (k, v), remove and return some (key, value) pair\nas a 2-tuple; but raise KeyError if D is empty.",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "setdefault",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D",
+          "signature": "(self, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "update",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F.\nIf E present and has a .keys() method, does:\n    for k in E.keys(): D[k] = E[k]\nIf E present and lacks .keys() method, does:\n    for (k, v) in E: D[k] = v\nIn either case, this is followed by:\n    for k, v in F.items(): D[k] = v",
+          "signature": "(self, other=(), /, **kwds)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "other",
+              "kind": "positional only",
+              "annotation": null,
+              "default": "()",
+              "required": false
+            },
+            {
+              "name": "kwds",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "values",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "D.values() -> an object providing a view on D's values",
+          "signature": "(self)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "OrderedDict",
+      "kind": "class",
+      "origin": "collections",
+      "docstring": "Dictionary that remembers insertion order",
+      "signature_error": "no signature found for builtin type <class 'collections.OrderedDict'>",
+      "members": [
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__class_getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "dicts are generic over two types, signifying (respectively) the types of their keys and values",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__contains__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "True if the dictionary has the specified key, else False.",
+          "signature": "(self, key, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__delitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Delete self[key].",
+          "signature": "(self, key, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dict__",
+          "kind": "getset_descriptor",
+          "decorators": [],
+          "inherited": false,
+          "docstring": null
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self[key].",
+          "signature": "(self, key, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "NoneType",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "The type of the None singleton."
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ior__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self|=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__iter__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Implement iter(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__len__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return len(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__or__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return self|value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return state information for pickling",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reversed__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "od.__reversed__() <==> reversed(od)",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ror__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return value|self.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setitem__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Set self[key] to value.",
+          "signature": "(self, key, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return the size of the dict in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "clear",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Remove all items from ordered dict.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "copy",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "A shallow copy of ordered dict.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fromkeys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Create a new ordered dictionary with keys from iterable and values set to value.",
+          "signature": "(type, /, iterable, value=None)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "iterable",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "get",
+          "kind": "function",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return the value for key if key is in the dictionary, else default.",
+          "signature": "(self, key, default=None, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional only",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "items",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return a set-like object providing a view on the dict's items.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "keys",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return a set-like object providing a view on the dict's keys.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "move_to_end",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Move an existing element to the end (or beginning if last is false).\n\nRaise KeyError if the element does not exist.",
+          "signature": "(self, /, key, last=True)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "last",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "pop",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "od.pop(key[,default]) -> v, remove specified key and return the corresponding value.\n\nIf the key is not found, return the default if given; otherwise,\nraise a KeyError.",
+          "inspection_error": "<method 'pop' of 'collections.OrderedDict' objects> builtin has invalid signature"
+        },
+        {
+          "name": "popitem",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Remove and return a (key, value) pair from the dictionary.\n\nPairs are returned in LIFO order if last is true or FIFO order if\nfalse.",
+          "signature": "(self, /, last=True)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "last",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "True",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "setdefault",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Insert key with a value of default if key is not in the dictionary.\n\nReturn the value for key if key is in the dictionary, else default.",
+          "signature": "(self, /, key, default=None)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "key",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "default",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "update",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F.\nIf E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]\nIf E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v\nIn either case, this is followed by: for k in F:  D[k] = F[k]",
+          "inspection_error": "no signature found for builtin <method 'update' of 'collections.OrderedDict' objects>"
+        },
+        {
+          "name": "values",
+          "kind": "function",
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Return an object providing a view on the dict's values.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "__builtins__",
+      "kind": "dict",
+      "origin": null,
+      "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+    },
+    {
+      "name": "__cached__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__doc__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__file__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__loader__",
+      "kind": "SourceFileLoader",
+      "origin": "_frozen_importlib_external",
+      "docstring": "Concrete implementation of SourceLoader using the file system."
+    },
+    {
+      "name": "__name__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__package__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__spec__",
+      "kind": "ModuleSpec",
+      "origin": "_frozen_importlib",
+      "docstring": "The specification for a module, used for loading.\n\nA module's spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec's\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec's \"origin\" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances."
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+[
+  {
+    "qualified": "json.JSONDecodeError",
+    "module": "json",
+    "kind": "class",
+    "signature": "JSONDecodeError(msg, doc, pos)",
+    "summary": "Subclass of ValueError with the following additional properties:",
+    "page": "api/00000-json.JSONDecodeError.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONDecoder",
+    "module": "json",
+    "kind": "class",
+    "signature": "JSONDecoder(*, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)",
+    "summary": "Simple JSON <https://json.org> decoder",
+    "page": "api/00001-json.JSONDecoder.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONDecoder.decode",
+    "module": "json",
+    "kind": "function",
+    "signature": "decode(self, s, _w=WHITESPACE.match)",
+    "summary": "Return the Python representation of ``s`` (a ``str`` instance",
+    "page": "api/00002-json.JSONDecoder.decode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONDecoder.raw_decode",
+    "module": "json",
+    "kind": "function",
+    "signature": "raw_decode(self, s, idx=0)",
+    "summary": "Decode a JSON document from ``s`` (a ``str`` beginning with",
+    "page": "api/00003-json.JSONDecoder.raw_decode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONEncoder",
+    "module": "json",
+    "kind": "class",
+    "signature": "JSONEncoder(*, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)",
+    "summary": "Extensible JSON <https://json.org> encoder for Python data structures.",
+    "page": "api/00004-json.JSONEncoder.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONEncoder.default",
+    "module": "json",
+    "kind": "function",
+    "signature": "default(self, o)",
+    "summary": "Implement this method in a subclass such that it returns",
+    "page": "api/00005-json.JSONEncoder.default.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONEncoder.encode",
+    "module": "json",
+    "kind": "function",
+    "signature": "encode(self, o)",
+    "summary": "Return a JSON string representation of a Python data structure.",
+    "page": "api/00006-json.JSONEncoder.encode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.JSONEncoder.iterencode",
+    "module": "json",
+    "kind": "function",
+    "signature": "iterencode(self, o, _one_shot=False)",
+    "summary": "Encode the given object and yield each string",
+    "page": "api/00007-json.JSONEncoder.iterencode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.dump",
+    "module": "json",
+    "kind": "function",
+    "signature": "dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)",
+    "summary": "Serialize ``obj`` as a JSON formatted stream to ``fp`` (a",
+    "page": "api/00008-json.dump.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.dumps",
+    "module": "json",
+    "kind": "function",
+    "signature": "dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)",
+    "summary": "Serialize ``obj`` to a JSON formatted ``str``.",
+    "page": "api/00009-json.dumps.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.load",
+    "module": "json",
+    "kind": "function",
+    "signature": "load(fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)",
+    "summary": "Deserialize ``fp`` (a ``.read()``-supporting file-like object containing",
+    "page": "api/00010-json.load.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.loads",
+    "module": "json",
+    "kind": "function",
+    "signature": "loads(s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)",
+    "summary": "Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance",
+    "page": "api/00011-json.loads.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.decoder.JSONDecodeError",
+    "module": "json.decoder",
+    "kind": "class",
+    "signature": "JSONDecodeError(msg, doc, pos)",
+    "summary": "Subclass of ValueError with the following additional properties:",
+    "page": "api/00012-json.decoder.JSONDecodeError.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.decoder.JSONDecoder",
+    "module": "json.decoder",
+    "kind": "class",
+    "signature": "JSONDecoder(*, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)",
+    "summary": "Simple JSON <https://json.org> decoder",
+    "page": "api/00013-json.decoder.JSONDecoder.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.decoder.JSONDecoder.decode",
+    "module": "json.decoder",
+    "kind": "function",
+    "signature": "decode(self, s, _w=WHITESPACE.match)",
+    "summary": "Return the Python representation of ``s`` (a ``str`` instance",
+    "page": "api/00014-json.decoder.JSONDecoder.decode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.decoder.JSONDecoder.raw_decode",
+    "module": "json.decoder",
+    "kind": "function",
+    "signature": "raw_decode(self, s, idx=0)",
+    "summary": "Decode a JSON document from ``s`` (a ``str`` beginning with",
+    "page": "api/00015-json.decoder.JSONDecoder.raw_decode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.encoder.JSONEncoder",
+    "module": "json.encoder",
+    "kind": "class",
+    "signature": "JSONEncoder(*, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)",
+    "summary": "Extensible JSON <https://json.org> encoder for Python data structures.",
+    "page": "api/00016-json.encoder.JSONEncoder.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.encoder.JSONEncoder.default",
+    "module": "json.encoder",
+    "kind": "function",
+    "signature": "default(self, o)",
+    "summary": "Implement this method in a subclass such that it returns",
+    "page": "api/00017-json.encoder.JSONEncoder.default.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.encoder.JSONEncoder.encode",
+    "module": "json.encoder",
+    "kind": "function",
+    "signature": "encode(self, o)",
+    "summary": "Return a JSON string representation of a Python data structure.",
+    "page": "api/00018-json.encoder.JSONEncoder.encode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.encoder.JSONEncoder.iterencode",
+    "module": "json.encoder",
+    "kind": "function",
+    "signature": "iterencode(self, o, _one_shot=False)",
+    "summary": "Encode the given object and yield each string",
+    "page": "api/00019-json.encoder.JSONEncoder.iterencode.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.encoder.py_encode_basestring",
+    "module": "json.encoder",
+    "kind": "function",
+    "signature": "py_encode_basestring(s)",
+    "summary": "Return a JSON representation of a Python string",
+    "page": "api/00020-json.encoder.py_encode_basestring.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.encoder.py_encode_basestring_ascii",
+    "module": "json.encoder",
+    "kind": "function",
+    "signature": "py_encode_basestring_ascii(s)",
+    "summary": "Return an ASCII-only JSON representation of a Python string",
+    "page": "api/00021-json.encoder.py_encode_basestring_ascii.md",
+    "evidence": "source"
+  },
+  {
+    "qualified": "json.tool.main",
+    "module": "json.tool",
+    "kind": "function",
+    "signature": "main()",
+    "summary": "No description supplied by the package.",
+    "page": "api/00022-json.tool.main.md",
+    "evidence": "source"
+  }
+]

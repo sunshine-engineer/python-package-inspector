@@ -1,0 +1,1917 @@
+{
+  "module": "os.path",
+  "docstring": "Common pathname manipulations, WindowsNT/95 version.\n\nInstead of importing this module directly, import os and refer to this\nmodule as os.path.",
+  "exports": [
+    "normcase",
+    "isabs",
+    "join",
+    "splitdrive",
+    "splitroot",
+    "split",
+    "splitext",
+    "basename",
+    "dirname",
+    "commonprefix",
+    "getsize",
+    "getmtime",
+    "getatime",
+    "getctime",
+    "islink",
+    "exists",
+    "lexists",
+    "isdir",
+    "isfile",
+    "ismount",
+    "isreserved",
+    "expanduser",
+    "expandvars",
+    "normpath",
+    "abspath",
+    "curdir",
+    "pardir",
+    "sep",
+    "pathsep",
+    "defpath",
+    "altsep",
+    "extsep",
+    "devnull",
+    "realpath",
+    "supports_unicode_filenames",
+    "relpath",
+    "samefile",
+    "sameopenfile",
+    "samestat",
+    "commonpath",
+    "isjunction",
+    "isdevdrive",
+    "ALLOW_MISSING"
+  ],
+  "members": [
+    {
+      "name": "ALLOW_MISSING",
+      "kind": "ALLOW_MISSING",
+      "origin": "genericpath",
+      "docstring": "Special value for use in realpath()."
+    },
+    {
+      "name": "_LCMAP_LOWERCASE",
+      "kind": "int",
+      "origin": null,
+      "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+    },
+    {
+      "name": "_LCMapStringEx",
+      "kind": "function",
+      "origin": "_winapi",
+      "docstring": null,
+      "signature": "(locale, flags, src)",
+      "parameters": [
+        {
+          "name": "locale",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "flags",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "src",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_LOCALE_NAME_INVARIANT",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__all__",
+      "kind": "list",
+      "origin": null,
+      "docstring": "Built-in mutable sequence.\n\nIf no argument is given, the constructor creates a new empty list.\nThe argument must be an iterable if specified."
+    },
+    {
+      "name": "__builtins__",
+      "kind": "dict",
+      "origin": null,
+      "docstring": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)"
+    },
+    {
+      "name": "__doc__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__file__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__loader__",
+      "kind": "class",
+      "origin": "_frozen_importlib",
+      "docstring": "Meta path import for frozen modules.\n\nAll methods are either class or static methods to avoid the need to\ninstantiate the class.",
+      "signature": "()",
+      "parameters": [],
+      "returns": null,
+      "members": [
+        {
+          "name": "_ORIGIN",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "_SEP",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__class__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": true,
+          "docstring": "the object's class"
+        },
+        {
+          "name": "__delattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement delattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__dict__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "dictionary for instance variables"
+        },
+        {
+          "name": "__dir__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default dir() implementation.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__doc__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__eq__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self==value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__firstlineno__",
+          "kind": "int",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating-point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer\niteral.\n>>> int('0b100', base=0)\n4"
+        },
+        {
+          "name": "__format__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Default object formatter.\n\nReturn str(self) if format_spec is empty. Raise TypeError otherwise.",
+          "signature": "(self, format_spec, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "format_spec",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__ge__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getattribute__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return getattr(self, name).",
+          "signature": "(self, name, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__getstate__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__gt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self>value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__hash__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return hash(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Initialize self.  See help(type(self)) for accurate signature.",
+          "signature": "(self, /, *args, **kwargs)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__init_subclass__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "This method is called when a class is subclassed.\n\nThe default implementation does nothing. It may be\noverridden to extend subclasses.",
+          "signature": "(type, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__le__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__lt__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self<value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__module__",
+          "kind": "str",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+        },
+        {
+          "name": "__ne__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return self!=value.",
+          "signature": "(self, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__new__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Create and return a new object.  See help(type) for accurate signature.",
+          "signature": "(*args, **kwargs)",
+          "parameters": [
+            {
+              "name": "args",
+              "kind": "var positional",
+              "annotation": null,
+              "default": null,
+              "required": false
+            },
+            {
+              "name": "kwargs",
+              "kind": "var keyword",
+              "annotation": null,
+              "default": null,
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__reduce_ex__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Helper for pickle.",
+          "signature": "(self, protocol, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "protocol",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__repr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return repr(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__setattr__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Implement setattr(self, name, value).",
+          "signature": "(self, name, value, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "name",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "value",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__sizeof__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Size of object in memory, in bytes.",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__static_attributes__",
+          "kind": "tuple",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object."
+        },
+        {
+          "name": "__str__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Return str(self).",
+          "signature": "(self, /)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__subclasshook__",
+          "kind": "function",
+          "binding": "instance",
+          "decorators": [],
+          "inherited": true,
+          "docstring": "Abstract classes can override this to customize issubclass().\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().\nIt should return True, False or NotImplemented.  If it returns\nNotImplemented, the normal algorithm is used.  Otherwise, it\noverrides the normal algorithm (and the outcome is cached).",
+          "signature": "(type, object, /)",
+          "parameters": [
+            {
+              "name": "type",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "object",
+              "kind": "positional only",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "__weakref__",
+          "kind": "getset_descriptor",
+          "binding": null,
+          "decorators": [],
+          "inherited": false,
+          "docstring": "list of weak references to the object"
+        },
+        {
+          "name": "_fix_up_module",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(cls, module)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "module",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_resolve_filename",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(cls, fullname, alias=None, ispkg=False)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fullname",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "alias",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "ispkg",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "False",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "create_module",
+          "kind": "function",
+          "binding": "static",
+          "decorators": [
+            "staticmethod"
+          ],
+          "inherited": false,
+          "docstring": "Set __file__, if able.",
+          "signature": "(spec)",
+          "parameters": [
+            {
+              "name": "spec",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "exec_module",
+          "kind": "function",
+          "binding": "static",
+          "decorators": [
+            "staticmethod"
+          ],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(module)",
+          "parameters": [
+            {
+              "name": "module",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "find_spec",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": null,
+          "signature": "(cls, fullname, path=None, target=None)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fullname",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "path",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            },
+            {
+              "name": "target",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": "None",
+              "required": false
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "get_code",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": "Return the code object for the frozen module.",
+          "signature": "(self, fullname)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fullname",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "get_source",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": "Return None as frozen modules do not have source code.",
+          "signature": "(self, fullname)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fullname",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "is_package",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": "Return True if the frozen module is a package.",
+          "signature": "(self, fullname)",
+          "parameters": [
+            {
+              "name": "self",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fullname",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "load_module",
+          "kind": "function",
+          "binding": "class",
+          "decorators": [
+            "classmethod"
+          ],
+          "inherited": false,
+          "docstring": "Load a frozen module.\n\nThis method is deprecated.  Use exec_module() instead.",
+          "signature": "(cls, fullname)",
+          "parameters": [
+            {
+              "name": "cls",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            },
+            {
+              "name": "fullname",
+              "kind": "positional or keyword",
+              "annotation": null,
+              "default": null,
+              "required": true
+            }
+          ],
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "__name__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__package__",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "__spec__",
+      "kind": "ModuleSpec",
+      "origin": "_frozen_importlib",
+      "docstring": "The specification for a module, used for loading.\n\nA module's spec is the source for information about the module.  For\ndata associated with the module, including source, use the spec's\nloader.\n\n`name` is the absolute name of the module.  `loader` is the loader\nto use when loading the module.  `parent` is the name of the\npackage the module is in.  The parent is derived from the name.\n\n`is_package` determines if the module is considered a package or\nnot.  On modules this is reflected by the `__path__` attribute.\n\n`origin` is the specific location used by the loader from which to\nload the module, if that information is available.  When filename is\nset, origin will match.\n\n`has_location` indicates that a spec's \"origin\" reflects a location.\nWhen this is True, `__file__` attribute of the module is set.\n\n`cached` is the location of the cached bytecode file, if any.  It\ncorresponds to the `__cached__` attribute.\n\n`submodule_search_locations` is the sequence of path entries to\nsearch when importing submodules.  If set, is_package should be\nTrue--and False otherwise.\n\nPackages are simply modules that (may) have submodules.  If a spec\nhas a non-None value in `submodule_search_locations`, the import\nsystem will consider modules loaded from the spec as packages.\n\nOnly finders (see importlib.abc.MetaPathFinder and\nimportlib.abc.PathEntryFinder) should modify ModuleSpec instances."
+    },
+    {
+      "name": "_findfirstfile",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "A function to get the real file name without accessing the file in Windows.",
+      "signature": "(path, /)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional only",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_get_bothseps",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": null,
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_getfinalpathname",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "A helper function for samepath on windows.",
+      "signature": "(path, /)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional only",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_getfinalpathname_nonstrict",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": null,
+      "signature": "(path, ignored_error=<class 'OSError'>)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "ignored_error",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": "<class 'OSError'>",
+          "required": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_getfullpathname",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": null,
+      "signature": "(path, /)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional only",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_getvolumepathname",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "A helper function for ismount on Win32.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_isreservedname",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Return true if the filename is reserved by the system.",
+      "signature": "(name)",
+      "parameters": [
+        {
+          "name": "name",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_nt_readlink",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Return a string representing the path to which the symbolic link points.\n\nIf dir_fd is not None, it should be a file descriptor open to\na directory, and path should be relative; path will then be relative to\nthat directory.\n\ndir_fd may not be implemented on your platform.  If it is unavailable,\nusing it will raise a NotImplementedError.",
+      "signature": "(path, *, dir_fd=None)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "dir_fd",
+          "kind": "keyword only",
+          "annotation": null,
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_path_isdevdrive",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Determines whether the specified path is on a Windows Dev Drive.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_readlink_deep",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": null,
+      "signature": "(path, ignored_error=<class 'OSError'>)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "ignored_error",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": "<class 'OSError'>",
+          "required": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "_reserved_chars",
+      "kind": "frozenset",
+      "origin": null,
+      "docstring": "Build an immutable unordered collection of unique elements."
+    },
+    {
+      "name": "_reserved_names",
+      "kind": "frozenset",
+      "origin": null,
+      "docstring": "Build an immutable unordered collection of unique elements."
+    },
+    {
+      "name": "_varpattern",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "_varsub",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "_varsubb",
+      "kind": "NoneType",
+      "origin": null,
+      "docstring": "The type of the None singleton."
+    },
+    {
+      "name": "abspath",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Return the absolute version of a path.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "altsep",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "basename",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Returns the final component of a pathname",
+      "signature": "(p)",
+      "parameters": [
+        {
+          "name": "p",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "commonpath",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Given an iterable of path names, returns the longest common sub-path.",
+      "signature": "(paths)",
+      "parameters": [
+        {
+          "name": "paths",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "commonprefix",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Given a list of pathnames, returns the longest common leading component",
+      "signature": "(m)",
+      "parameters": [
+        {
+          "name": "m",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "curdir",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "defpath",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "devnull",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "dirname",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Returns the directory component of a pathname",
+      "signature": "(p)",
+      "parameters": [
+        {
+          "name": "p",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "exists",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Test whether a path exists.  Returns False for broken symbolic links.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "expanduser",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Expand ~ and ~user constructs.\n\nIf user or home directory is unknown, do nothing.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "expandvars",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Expand shell variables of the forms $var, ${var} and %var%.\n\nUnknown variables are left unchanged.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "extsep",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "genericpath",
+      "kind": "module",
+      "origin": null,
+      "docstring": "Path operations common to more than one OS\nDo not use directly.  The OS specific modules import the appropriate\nfunctions from this module themselves."
+    },
+    {
+      "name": "getatime",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Return the last access time of a file, reported by os.stat().",
+      "signature": "(filename)",
+      "parameters": [
+        {
+          "name": "filename",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "getctime",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Return the metadata change time of a file, reported by os.stat().",
+      "signature": "(filename)",
+      "parameters": [
+        {
+          "name": "filename",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "getmtime",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Return the last modification time of a file, reported by os.stat().",
+      "signature": "(filename)",
+      "parameters": [
+        {
+          "name": "filename",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "getsize",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Return the size of a file, reported by os.stat().",
+      "signature": "(filename)",
+      "parameters": [
+        {
+          "name": "filename",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isabs",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Test whether a path is absolute",
+      "signature": "(s)",
+      "parameters": [
+        {
+          "name": "s",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isdevdrive",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Determines whether the specified path is on a Windows Dev Drive.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isdir",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Return true if the pathname refers to an existing directory.",
+      "signature": "(s)",
+      "parameters": [
+        {
+          "name": "s",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isfile",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Test whether a path is a regular file",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isjunction",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Test whether a path is a junction",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "islink",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Test whether a path is a symbolic link",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "ismount",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Test whether a path is a mount point (a drive root, the root of a\nshare, or a mounted volume)",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isreserved",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Return true if the pathname is reserved by the system.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "join",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": null,
+      "signature": "(path, *paths)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "paths",
+          "kind": "var positional",
+          "annotation": null,
+          "default": null,
+          "required": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "lexists",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Test whether a path exists.  Returns True for broken symbolic links.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "normcase",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Normalize case of pathname.\n\nMakes all characters lowercase and all slashes into backslashes.",
+      "signature": "(s)",
+      "parameters": [
+        {
+          "name": "s",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "normpath",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Normalize path, eliminating double slashes, etc.",
+      "signature": "(path)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "os",
+      "kind": "module",
+      "origin": null,
+      "docstring": "OS routines for NT or Posix depending on what system we're on.\n\nThis exports:\n  - all functions from posix or nt, e.g. unlink, stat, etc.\n  - os.path is either posixpath or ntpath\n  - os.name is either 'posix' or 'nt'\n  - os.curdir is a string representing the current directory (always '.')\n  - os.pardir is a string representing the parent directory (always '..')\n  - os.sep is the (or a most common) pathname separator ('/' or '\\\\')\n  - os.extsep is the extension separator (always '.')\n  - os.altsep is the alternate pathname separator (None or '/')\n  - os.pathsep is the component separator used in $PATH etc\n  - os.linesep is the line separator in text files ('\\n' or '\\r\\n')\n  - os.defpath is the default search path for executables\n  - os.devnull is the file path of the null device ('/dev/null', etc.)\n\nPrograms that import and use 'os' stand a better chance of being\nportable between different platforms.  Of course, they must then\nonly use functions that are defined by all platforms (e.g., unlink\nand opendir), and leave all pathname manipulation to os.path\n(e.g., split and join)."
+    },
+    {
+      "name": "pardir",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "pathsep",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "realpath",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": null,
+      "signature": "(path, *, strict=False)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "strict",
+          "kind": "keyword only",
+          "annotation": null,
+          "default": "False",
+          "required": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "relpath",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Return a relative version of a path",
+      "signature": "(path, start=None)",
+      "parameters": [
+        {
+          "name": "path",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "start",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": "None",
+          "required": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "samefile",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Test whether two pathnames reference the same actual file or directory\n\nThis is determined by the device number and i-node number and\nraises an exception if an os.stat() call on either pathname fails.",
+      "signature": "(f1, f2)",
+      "parameters": [
+        {
+          "name": "f1",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "f2",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "sameopenfile",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Test whether two open file objects reference the same file",
+      "signature": "(fp1, fp2)",
+      "parameters": [
+        {
+          "name": "fp1",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "fp2",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "samestat",
+      "kind": "function",
+      "origin": "genericpath",
+      "docstring": "Test whether two stat buffers reference the same file",
+      "signature": "(s1, s2)",
+      "parameters": [
+        {
+          "name": "s1",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        },
+        {
+          "name": "s2",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "sep",
+      "kind": "str",
+      "origin": null,
+      "docstring": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to 'utf-8'.\nerrors defaults to 'strict'."
+    },
+    {
+      "name": "split",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Split a pathname.\n\nReturn tuple (head, tail) where tail is everything after the final\nslash.  Either part may be empty.",
+      "signature": "(p)",
+      "parameters": [
+        {
+          "name": "p",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "splitdrive",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Split a pathname into drive/UNC sharepoint and relative path specifiers.\nReturns a 2-tuple (drive_or_unc, path); either part may be empty.\n\nIf you assign\n    result = splitdrive(p)\nIt is always true that:\n    result[0] + result[1] == p\n\nIf the path contained a drive letter, drive_or_unc will contain\neverything up to and including the colon.  e.g. splitdrive(\"c:/dir\")\nreturns (\"c:\", \"/dir\")\n\nIf the path contained a UNC path, the drive_or_unc will contain the\nhost name and share up to but not including the fourth directory\nseparator character.  e.g. splitdrive(\"//host/computer/dir\") returns\n(\"//host/computer\", \"/dir\")\n\nPaths cannot contain both a drive letter and a UNC path.",
+      "signature": "(p)",
+      "parameters": [
+        {
+          "name": "p",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "splitext",
+      "kind": "function",
+      "origin": "ntpath",
+      "docstring": "Split the extension from a pathname.\n\nExtension is everything from the last dot to the end, ignoring\nleading dots.  Returns \"(root, ext)\"; ext may be empty.",
+      "signature": "(p)",
+      "parameters": [
+        {
+          "name": "p",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "splitroot",
+      "kind": "function",
+      "origin": "nt",
+      "docstring": "Split a pathname into drive, root and tail.\n\nThe tail contains anything after the root.",
+      "signature": "(p)",
+      "parameters": [
+        {
+          "name": "p",
+          "kind": "positional or keyword",
+          "annotation": null,
+          "default": null,
+          "required": true
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "supports_unicode_filenames",
+      "kind": "bool",
+      "origin": null,
+      "docstring": "Returns True when the argument is true, False otherwise.\nThe builtins True and False are the only two instances of the class bool.\nThe class bool is a subclass of the class int, and cannot be subclassed."
+    },
+    {
+      "name": "sys",
+      "kind": "module",
+      "origin": null,
+      "docstring": "This module provides access to some objects used or maintained by the\ninterpreter and to functions that interact strongly with the interpreter.\n\nDynamic objects:\n\nargv -- command line arguments; argv[0] is the script pathname if known\npath -- module search path; path[0] is the script directory, else ''\nmodules -- dictionary of loaded modules\n\ndisplayhook -- called to show results in an interactive session\nexcepthook -- called to handle any uncaught exception other than SystemExit\n  To customize printing in an interactive session or to install a custom\n  top-level exception handler, assign other functions to replace these.\n\nstdin -- standard input file object; used by input()\nstdout -- standard output file object; used by print()\nstderr -- standard error object; used for error messages\n  By assigning other file objects (or objects that behave like files)\n  to these, it is possible to redirect all of the interpreter's I/O.\n\nlast_exc - the last uncaught exception\n  Only available in an interactive session after a\n  traceback has been printed.\nlast_type -- type of last uncaught exception\nlast_value -- value of last uncaught exception\nlast_traceback -- traceback of last uncaught exception\n  These three are the (deprecated) legacy representation of last_exc.\n\nStatic objects:\n\nbuiltin_module_names -- tuple of module names built into this interpreter\ncopyright -- copyright notice pertaining to this interpreter\nexec_prefix -- prefix used to find the machine-specific Python library\nexecutable -- absolute path of the executable binary of the Python interpreter\nfloat_info -- a named tuple with information about the float implementation.\nfloat_repr_style -- string indicating the style of repr() output for floats\nhash_info -- a named tuple with information about the hash algorithm.\nhexversion -- version information encoded as a single integer\nimplementation -- Python implementation information.\nint_info -- a named tuple with information about the int implementation.\nmaxsize -- the largest supported length of containers.\nmaxunicode -- the value of the largest Unicode code point\nplatform -- platform identifier\nprefix -- prefix used to find the Python library\nthread_info -- a named tuple with information about the thread implementation.\nversion -- the version of this interpreter as a string\nversion_info -- version information as a named tuple\ndllhandle -- [Windows only] integer handle of the Python DLL\nwinver -- [Windows only] version number of the Python DLL\n_enablelegacywindowsfsencoding -- [Windows only]\n__stdin__ -- the original stdin; don't touch!\n__stdout__ -- the original stdout; don't touch!\n__stderr__ -- the original stderr; don't touch!\n__displayhook__ -- the original displayhook; don't touch!\n__excepthook__ -- the original excepthook; don't touch!\n\nFunctions:\n\ndisplayhook() -- print an object to the screen, and save it in builtins._\nexcepthook() -- print an exception and its traceback to sys.stderr\nexception() -- return the current thread's active exception\nexc_info() -- return information about the current thread's active exception\nexit() -- exit the interpreter by raising SystemExit\ngetdlopenflags() -- returns flags to be used for dlopen() calls\ngetprofile() -- get the global profiling function\ngetrefcount() -- return the reference count for an object (plus one :-)\ngetrecursionlimit() -- return the max recursion depth for the interpreter\ngetsizeof() -- return the size of an object in bytes\ngettrace() -- get the global debug tracing function\nsetdlopenflags() -- set the flags to be used for dlopen() calls\nsetprofile() -- set the global profiling function\nsetrecursionlimit() -- set the max recursion depth for the interpreter\nsettrace() -- set the global debug tracing function"
+    }
+  ]
+}
